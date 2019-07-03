@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
@@ -23,9 +22,9 @@ public class Seeker {
         final FileSystem fs = FileSystems.newFileSystem(URI.create(array[0]), env);
         final Path path = fs.getPath(array[1]);
         System.out.println("path = " + path.toString());
-        File file = path.toFile();
-        String absolutePath = file.getAbsolutePath();
-        FileReader fr = new FileReader(absolutePath);
+//        File file = path.toFile();
+//        String absolutePath = file.getAbsolutePath();
+        FileReader fr = new FileReader(path.toString());
         Scanner scan = new Scanner(fr);
 
         while (scan.hasNextLine()) {
