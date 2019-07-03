@@ -1,12 +1,13 @@
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Seeker {
@@ -17,7 +18,11 @@ public class Seeker {
 
     public static void readFile() throws IOException, URISyntaxException {
         URL res = Seeker.class.getClassLoader().getResource("vocabulary.txt");
-        File file = Paths.get(res.toURI()).toFile();
+        final Map<String, String> env = new HashMap<>();
+        final String[] array = res.toString().split("!");
+        final FileSystem fs = FileSystems.newFileSystem(URI.create(array[0]), env);
+        final Path path = fs.getPath(array[1]);
+        File file = path.toFile();
         String absolutePath = file.getAbsolutePath();
         FileReader fr = new FileReader(absolutePath);
         Scanner scan = new Scanner(fr);
