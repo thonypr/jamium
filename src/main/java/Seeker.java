@@ -22,6 +22,7 @@ public class Seeker {
         final String[] array = res.toString().split("!");
         final FileSystem fs = FileSystems.newFileSystem(URI.create(array[0]), env);
         final Path path = fs.getPath(array[1]);
+        System.out.println("path = " + path.toString());
         File file = path.toFile();
         String absolutePath = file.getAbsolutePath();
         FileReader fr = new FileReader(absolutePath);
