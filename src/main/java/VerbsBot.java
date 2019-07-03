@@ -27,8 +27,11 @@ public class VerbsBot extends TelegramLongPollingBot {
             // Set variables
             String message_text = update.getMessage().getText();
             Long chat_id = update.getMessage().getChatId();
+            log("", "message received!", "");
 
             if (message_text.equals("/start")) {
+
+                log("", "START message received!", "");
 
                 //show welcome screen
                 SendMessage message = new SendMessage();
@@ -41,6 +44,7 @@ public class VerbsBot extends TelegramLongPollingBot {
                     e.printStackTrace();
                 }
             } else {
+                log("", "! START message received!", "");
                 SendMessage msg = new SendMessage();
                 String verbToSearchFor = update.getMessage().getText();
                 Long chatId = update.getMessage().getChatId();

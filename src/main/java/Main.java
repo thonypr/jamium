@@ -22,6 +22,7 @@ public class Main {
             // get DB info about users states
             Seeker.readFile();
             Seeker.parseFileInfo();
+            VerbsBot.log("", "file parsed!", "");
             botsApi.registerBot((LongPollingBot) new VerbsBot());
 //            botsApi.registerBot((LongPollingBot) new Notificator());
         } catch (TelegramApiException e) {
