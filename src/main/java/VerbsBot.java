@@ -61,6 +61,9 @@ public class VerbsBot extends TelegramLongPollingBot {
                     results.append("WTF?");
                 }
 
+                if(results.length() == 0) {
+                    results.append("WTF?");
+                }
                 msg.setChatId(chatId);
                 msg.setText(String.valueOf(results));
                 try {
