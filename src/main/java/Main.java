@@ -20,7 +20,8 @@ public class Main {
         try {
 //            botsApi.registerBot(new JamiumBot());
             // get DB info about users states
-            Seeker.readFile();
+//            Seeker.readFile();
+            Seeker.readProp();
             Seeker.parseFileInfo();
             VerbsBot.log("", "file parsed!", "");
             botsApi.registerBot((LongPollingBot) new VerbsBot());
