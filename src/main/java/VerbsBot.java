@@ -37,7 +37,7 @@ public class VerbsBot extends TelegramLongPollingBot {
                 SendMessage message = new SendMessage();
                 message.setChatId(chat_id);
                 String userName = update.getMessage().getFrom().getFirstName();
-                message.setText(Responses.WELCOME.replace("X, enter word in infinitive to get it forms", userName));
+                message.setText("X, enter word in infinitive to get it forms".replace("X", userName));
                 try {
                     execute(message); // Sending our message object to user
                 } catch (TelegramApiException e) {
