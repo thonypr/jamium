@@ -157,7 +157,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             //TODO: add notification to admin
                             try{
                                 //TODO: fix russian language
-                                Notificator.sendPost("oo whee! jam#3 captured by " + update.getMessage().getFrom().toString());
+                                Notificator.sendPost("oo whee! jam#3 captured by " + update.getMessage().getFrom().getLastName());
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
