@@ -296,6 +296,32 @@ public class JamiumBot extends TelegramLongPollingBot {
                 }
             }
 
+            else if (call_data.equals("t_3")) {
+                UsersController.updateUserState(chat_id, State.VIEW_TASK_3);
+                DBConnection.updateUser(chat_id, State.VIEW_TASK_3);
+                String answer = "And I'm task 3! " + chat_id;
+                AnswerCallbackQuery callBack = new AnswerCallbackQuery()
+                        .setCallbackQueryId(update.getCallbackQuery().getId());
+//                        .setChatId(chat_id)
+//                        .setMessageId(Integer.valueOf(String.valueOf(message_id)))
+//                        .setText(answer);
+                try {
+                    execute(callBack);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+                //and show Task 2
+                SendAudio message = new SendAudio()
+                        .setChatId(chat_id)
+                        .setAudio("CQADAgADOwMAAnrMCUmeOhUVbsby9QI")
+                        .setCaption(Responses.TASK_3);
+                try {
+                    execute(message);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
+
         }
     }
 
