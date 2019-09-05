@@ -158,7 +158,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             try{
                                 //TODO: fix russian language
                                 System.out.println("log = " + update.getMessage().getFrom().getLastName());
-                                Notificator.sendPost("oo whee! jam#3 captured by " + update.getMessage().getFrom().getLastName());
+                                Notificator.sendPost("oo whee! jam#3 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
