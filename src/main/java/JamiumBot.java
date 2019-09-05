@@ -168,7 +168,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                     .setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard())
                                     .setChatId(chatId)
                                     .setAudio("CQADAgADOwMAAnrMCUmeOhUVbsby9QI")
-                                    .setCaption(response + "\n" + Responses.TASK_2);
+                                    .setCaption(response + "\n" + Responses.TASK_3);
                             try {
                                 execute(messageAudio);
                             } catch (TelegramApiException e) {
