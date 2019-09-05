@@ -13,7 +13,6 @@ import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class JamiumBot extends TelegramLongPollingBot {
 
@@ -62,9 +61,9 @@ public class JamiumBot extends TelegramLongPollingBot {
                 String userName = update.getMessage().getFrom().getFirstName();
                 message.setText(Responses.WELCOME.replace("X", userName));
                 //TODO: flexible tasks list
-                List<TaskDB> tasks = DBConnection.getTasks().stream().filter(t -> t.getIsActive()).collect(Collectors.toList());
-//                message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
-                message.setReplyMarkup(InlineKeyboardResponses.getKeyboardFromTasks(tasks));
+//                List<TaskDB> tasks = DBConnection.getTasks().stream().filter(t -> t.getIsActive()).collect(Collectors.toList());
+                message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+//                message.setReplyMarkup(InlineKeyboardResponses.getKeyboardFromTasks(tasks));
 //                Keyboards.setWelcomeButtons(message);
                 try {
                     execute(message); // Sending our message object to user
