@@ -74,7 +74,7 @@ public class Validator {
         closeAnswers.add(System.getenv("TG_JAM_3_CLOSE"));
 
         if(answer.equals(correctAnswer)) {
-            result = Responses.CONGRAT_2;
+            result = Responses.CONGRAT_3;
         }
         else if (closeAnswers.contains(answer)) {
             result = Responses.CLOSE_3;
