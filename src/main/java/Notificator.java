@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class Notificator {
@@ -24,7 +25,8 @@ public class Notificator {
         URL obj = new URL(url);
         HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
         byte[] bytes = text.getBytes(StandardCharsets.UTF_8);
-        text = new String(bytes, StandardCharsets.UTF_8);
+        String before = new String(bytes, StandardCharsets.UTF_8);
+        text = URLEncoder.encode(before, StandardCharsets.UTF_8.toString());
 
         //add reuqest header
         con.setRequestMethod("POST");
