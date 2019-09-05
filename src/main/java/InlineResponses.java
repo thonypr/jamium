@@ -9,7 +9,8 @@ public class InlineResponses {
     private static ArrayList<InlineKeyboardButton> tasks = new ArrayList<>(
             Arrays.asList(
                     new InlineKeyboardButton().setText("Jam #1").setCallbackData("t_1"),
-                    new InlineKeyboardButton().setText("Jam #2").setCallbackData("t_2")
+                    new InlineKeyboardButton().setText("Jam #2").setCallbackData("t_2"),
+                    new InlineKeyboardButton().setText("Jam #3").setCallbackData("t_3")
             ));
 
     private static ArrayList<InlineKeyboardButton> medias = new ArrayList<>(
@@ -27,6 +28,11 @@ public class InlineResponses {
     private static ArrayList<InlineKeyboardButton> task2 = new ArrayList<>(
             Arrays.asList(
                     new InlineKeyboardButton().setText("Task 2").setCallbackData("t_2")
+            ));
+
+    private static ArrayList<InlineKeyboardButton> task3 = new ArrayList<>(
+            Arrays.asList(
+                    new InlineKeyboardButton().setText("Task 3").setCallbackData("t_3")
             ));
 
     private static ArrayList<InlineKeyboardButton> attempt1 = new ArrayList<>(
@@ -61,5 +67,9 @@ public class InlineResponses {
 
     public static List<InlineKeyboardButton> getTask2InlineButtons() {
         return task2;
+    }
+
+    public static List<InlineKeyboardButton> getTask3InlineButtons() {
+        return task3;
     }
 }

@@ -4,4 +4,6 @@ public enum State {
     SOLVED_TASK_1,
     VIEW_TASK_2,
     SOLVED_TASK_2,
+    VIEW_TASK_3,
+    SOLVED_TASK_3
 }

@@ -140,6 +140,43 @@ public class JamiumBot extends TelegramLongPollingBot {
                         }
                         break;
                     }
+                    case VIEW_TASK_3: {
+                        response = Validator.task3(update.getMessage().getText());
+                        if (response.equals(Responses.CONGRAT_3)) {
+                            SendMessage message = new SendMessage();
+                            UsersController.updateUserState(chatId, State.SOLVED_TASK_3);
+                            DBConnection.updateUser(chatId, State.SOLVED_TASK_3);
+                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                            message.setChatId(chatId);
+                            message.setText(response);
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            //TODO: add notification to admin
+                            try{
+                                //TODO: fix russian language
+                                Notificator.sendPost("oo whee! jam#3 captured by " + update.getMessage().getFrom().toString());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            //and show Task 3
+                            SendAudio messageAudio = new SendAudio();
+                            messageAudio.setChatId(chat_id)
+                                    .setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard())
+                                    .setChatId(chatId)
+                                    .setAudio("CQADAgADOwMAAnrMCUmeOhUVbsby9QI")
+                                    .setCaption(response + "\n" + Responses.TASK_2);
+                            try {
+                                execute(messageAudio);
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        break;
+                    }
                 }
 
             }
