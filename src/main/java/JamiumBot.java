@@ -31,7 +31,7 @@ public class JamiumBot extends TelegramLongPollingBot {
         // We check if the update has a message and the message has text
         if (update.hasMessage() && update.getMessage().hasText()) {
             try {
-                Notificator.sendDebug(String.format("User %s says %s", update.getMessage().getFrom().toString(), update.getMessage().getText()));
+                Notificator.sendDebug(String.format("User %s says \n %s", update.getMessage().getFrom().toString(), update.getMessage().getText()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
