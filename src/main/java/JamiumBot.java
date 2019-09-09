@@ -30,11 +30,6 @@ public class JamiumBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         // We check if the update has a message and the message has text
         if (update.hasMessage() && update.getMessage().hasText()) {
-            try {
-                Notificator.sendDebug(String.format("User %s says \n %s", update.getMessage().getFrom().toString(), update.getMessage().getText()));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
             // Set variables
             String message_text = update.getMessage().getText();
             long chat_id = update.getMessage().getChatId();
@@ -80,6 +75,11 @@ public class JamiumBot extends TelegramLongPollingBot {
                 //response should be 2
                 Long chatId = update.getMessage().getChatId();
                 State userState = UsersController.getUser(chatId).getUserState();
+                try {
+                    Notificator.sendDebug(String.format("User %s \nin state = %s says\n%s", update.getMessage().getFrom().toString(), userState, update.getMessage().getText()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 String response = "";
 
                 switch (userState) {
