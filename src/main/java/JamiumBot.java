@@ -150,12 +150,17 @@ public class JamiumBot extends TelegramLongPollingBot {
                     case VIEW_TASK_3_1: {
                         response = Validator.task3_1(update.getMessage().getText());
                         if (response.equals(Responses.TASK_3_2)) {
-                            SendMessage message = new SendMessage();
+                            SendDocument message = new SendDocument();
                             UsersController.updateUserState(chatId, State.VIEW_TASK_3_2);
                             DBConnection.updateUser(chatId, State.VIEW_TASK_3_2);
 //                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
                             message.setChatId(chatId);
-                            message.setText(response);
+                            message.setCaption(response);
+                            //and show Task 3_2
+                            message.setChatId(chat_id)
+                                    .setChatId(chatId)
+                                    .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
+                                    .setCaption(response + "\n" + Responses.TASK_3_2);
                             try {
                                 execute(message); // Sending our message object to user
                             } catch (TelegramApiException e) {
