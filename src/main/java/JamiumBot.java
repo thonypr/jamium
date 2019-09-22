@@ -159,7 +159,9 @@ public class JamiumBot extends TelegramLongPollingBot {
                             //and show Task 3_2
                             message.setChatId(chat_id)
                                     .setChatId(chatId)
-                                    .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
+                                    //TODO: fix
+//                                    .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
+                                    .setDocument("BQADAgADbQMAAuOBOUinrjE2XKmIXxYE")
                                     .setCaption(response);
                             try {
                                 execute(message); // Sending our message object to user
@@ -178,7 +180,9 @@ public class JamiumBot extends TelegramLongPollingBot {
                             messageAudio.setChatId(chat_id)
                                     .setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard())
                                     .setChatId(chatId)
-                                    .setDocument("BQADAgADdQMAAlHYOUiWzAgTBAzyhhYE")
+                                    //TODO: fix
+                                    .setDocument("CgADAgADbgMAAuOBOUjHKggul28N1xYE")
+//                                    .setDocument("BQADAgADdQMAAlHYOUiWzAgTBAzyhhYE")
                                     .setCaption(response + "\n" + Responses.TASK_3_1);
                             try {
                                 execute(messageAudio);
@@ -214,7 +218,9 @@ public class JamiumBot extends TelegramLongPollingBot {
                             messageAudio.setChatId(chat_id)
                                     .setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard())
                                     .setChatId(chatId)
-                                    .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
+                                    //TODO: fix
+//                                    .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
+                                    .setDocument("CgADAgADbgMAAuOBOUjHKggul28N1xYE")
                                     .setCaption(response + "\n" + Responses.TASK_3_2);
                             try {
                                 execute(messageAudio);
@@ -297,7 +303,6 @@ public class JamiumBot extends TelegramLongPollingBot {
         else if (update.hasCallbackQuery()) {
             // Set variables
             String call_data = update.getCallbackQuery().getData();
-            System.out.println("CB = " + call_data);
             long message_id = update.getCallbackQuery().getMessage().getMessageId();
             long chat_id = update.getCallbackQuery().getMessage().getChatId();
             if (call_data.equals("t_1")) {
@@ -384,7 +389,9 @@ public class JamiumBot extends TelegramLongPollingBot {
                 //and show Task 2
                 SendDocument message = new SendDocument()
                         .setChatId(chat_id)
-                        .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
+                        //TODO: fix
+//                        .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
+                        .setDocument("BQADAgADbQMAAuOBOUinrjE2XKmIXxYE")
                         .setCaption(Responses.TASK_3_1);
                 try {
                     execute(message);
