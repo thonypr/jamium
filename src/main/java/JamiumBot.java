@@ -169,11 +169,11 @@ public class JamiumBot extends TelegramLongPollingBot {
                             }
                         } else {
                             //and show Task 3_1
-                            SendAudio messageAudio = new SendAudio();
+                            SendDocument messageAudio = new SendDocument();
                             messageAudio.setChatId(chat_id)
                                     .setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard())
                                     .setChatId(chatId)
-                                    .setAudio("CQADAgADOwMAAnrMCUmeOhUVbsby9QI")
+                                    .setDocument("BQADAgADdQMAAlHYOUiWzAgTBAzyhhYE")
                                     .setCaption(response + "\n" + Responses.TASK_3_1);
                             try {
                                 execute(messageAudio);
@@ -205,11 +205,11 @@ public class JamiumBot extends TelegramLongPollingBot {
                             }
                         } else {
                             //and show Task 3_2
-                            SendAudio messageAudio = new SendAudio();
+                            SendDocument messageAudio = new SendDocument();
                             messageAudio.setChatId(chat_id)
                                     .setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard())
                                     .setChatId(chatId)
-                                    .setAudio("CQADAgADOwMAAnrMCUmeOhUVbsby9QI")
+                                    .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
                                     .setCaption(response + "\n" + Responses.TASK_3_2);
                             try {
                                 execute(messageAudio);
