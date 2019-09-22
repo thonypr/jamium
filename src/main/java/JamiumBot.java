@@ -180,9 +180,10 @@ public class JamiumBot extends TelegramLongPollingBot {
                             messageAudio.setChatId(chat_id)
                                     .setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard())
                                     .setChatId(chatId)
+                                    .setDocument("BQADAgADbQMAAuOBOUinrjE2XKmIXxYE")
                                     //TODO: fix
-                                    .setDocument("CgADAgADbgMAAuOBOUjHKggul28N1xYE")
-//                                    .setDocument("BQADAgADdQMAAlHYOUiWzAgTBAzyhhYE")
+                                    //debug chat 3_1: BQADAgADbQMAAuOBOUinrjE2XKmIXxYE
+                                    //prod chat 3_1: .setDocument("CgADAgADbgMAAuOBOUjHKggul28N1xYE")
                                     .setCaption(response + "\n" + Responses.TASK_3_1);
                             try {
                                 execute(messageAudio);
