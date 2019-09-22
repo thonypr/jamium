@@ -147,11 +147,11 @@ public class JamiumBot extends TelegramLongPollingBot {
                     }
                     case VIEW_TASK_3_1: {
                         response = Validator.task3_1(update.getMessage().getText());
-                        if (response.equals(Responses.CONGRAT_3_1)) {
+                        if (response.equals(Responses.TASK_3_2)) {
                             SendMessage message = new SendMessage();
-                            UsersController.updateUserState(chatId, State.SOLVED_TASK_3_1);
-                            DBConnection.updateUser(chatId, State.SOLVED_TASK_3_1);
-                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                            UsersController.updateUserState(chatId, State.VIEW_TASK_3_2);
+                            DBConnection.updateUser(chatId, State.VIEW_TASK_3_2);
+//                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
                             message.setChatId(chatId);
                             message.setText(response);
                             try {
@@ -166,7 +166,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                 e.printStackTrace();
                             }
                         } else {
-                            //and show Task 3
+                            //and show Task 3_1
                             SendAudio messageAudio = new SendAudio();
                             messageAudio.setChatId(chat_id)
                                     .setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard())
