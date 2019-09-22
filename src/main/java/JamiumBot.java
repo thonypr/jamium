@@ -1,6 +1,7 @@
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.AnswerCallbackQuery;
 import org.telegram.telegrambots.meta.api.methods.send.SendAudio;
+import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.Audio;
@@ -232,9 +233,9 @@ public class JamiumBot extends TelegramLongPollingBot {
             String f_id = document.getFileId();
             // Know file_id
             log(String.valueOf(update.getMessage().getChatId()), "fid = " + f_id, "");
-            SendPhoto msg = new SendPhoto()
+            SendDocument msg = new SendDocument()
                     .setChatId(update.getMessage().getChatId())
-                    .setPhoto(f_id)
+                    .setDocument(f_id)
                     .setCaption("формат ответа: ");
             log(String.valueOf(update.getMessage().getChatId()), "sent!", "");
             try {
