@@ -159,9 +159,9 @@ public class JamiumBot extends TelegramLongPollingBot {
                             //and show Task 3_2
                             message.setChatId(chat_id)
                                     .setChatId(chatId)
+                                    .setDocument("CgADAgADbwMAAuOBOUiQwQAB1jjGPFUWBA")
                                     //TODO: fix
-//                                    .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
-                                    .setDocument("BQADAgADbQMAAuOBOUinrjE2XKmIXxYE")
+//                                  //prod: 3_2  .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
                                     .setCaption(response);
                             try {
                                 execute(message); // Sending our message object to user
@@ -182,7 +182,6 @@ public class JamiumBot extends TelegramLongPollingBot {
                                     .setChatId(chatId)
                                     .setDocument("BQADAgADbQMAAuOBOUinrjE2XKmIXxYE")
                                     //TODO: fix
-                                    //debug chat 3_1: BQADAgADbQMAAuOBOUinrjE2XKmIXxYE
                                     //prod chat 3_1: .setDocument("CgADAgADbgMAAuOBOUjHKggul28N1xYE")
                                     .setCaption(response + "\n" + Responses.TASK_3_1);
                             try {
@@ -219,9 +218,9 @@ public class JamiumBot extends TelegramLongPollingBot {
                             messageAudio.setChatId(chat_id)
                                     .setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard())
                                     .setChatId(chatId)
+                                    .setDocument("CgADAgADbwMAAuOBOUiQwQAB1jjGPFUWBA")
                                     //TODO: fix
-//                                    .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
-                                    .setDocument("CgADAgADbgMAAuOBOUjHKggul28N1xYE")
+//                                  //prod chat 3_2  .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
                                     .setCaption(response + "\n" + Responses.TASK_3_2);
                             try {
                                 execute(messageAudio);
