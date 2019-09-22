@@ -268,6 +268,7 @@ public class JamiumBot extends TelegramLongPollingBot {
         else if (update.hasCallbackQuery()) {
             // Set variables
             String call_data = update.getCallbackQuery().getData();
+            System.out.println("CB = " + call_data);
             long message_id = update.getCallbackQuery().getMessage().getMessageId();
             long chat_id = update.getCallbackQuery().getMessage().getChatId();
             if (call_data.equals("t_1")) {
