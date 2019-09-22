@@ -4,6 +4,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendAudio;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.Audio;
+import org.telegram.telegrambots.meta.api.objects.Document;
 import org.telegram.telegrambots.meta.api.objects.PhotoSize;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -220,7 +221,29 @@ public class JamiumBot extends TelegramLongPollingBot {
                 }
 
             }
-        } if (update.hasMessage() && update.getMessage().hasPhoto()) {
+        }
+        if (update.hasMessage() && update.getMessage().hasDocument()) {
+            log(String.valueOf(update.getMessage().getChatId()), "file!!", "");
+            // Message contains photo
+            // Set variables
+            // Array with photo objects with different sizes
+            // We will get the biggest photo from that array
+            Document document = update.getMessage().getDocument();
+            String f_id = document.getFileId();
+            // Know file_id
+            log(String.valueOf(update.getMessage().getChatId()), "fid = " + f_id, "");
+            SendPhoto msg = new SendPhoto()
+                    .setChatId(update.getMessage().getChatId())
+                    .setPhoto(f_id)
+                    .setCaption("формат ответа: ");
+            log(String.valueOf(update.getMessage().getChatId()), "sent!", "");
+            try {
+                execute(msg); // Call method to send the photo with caption
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+        }
+        if (update.hasMessage() && update.getMessage().hasPhoto()) {
             log(String.valueOf(update.getMessage().getChatId()), "photo!", "");
             // Message contains photo
             // Set variables
