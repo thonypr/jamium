@@ -32,7 +32,8 @@ public class InlineResponses {
 
     private static ArrayList<InlineKeyboardButton> task3 = new ArrayList<>(
             Arrays.asList(
-                    new InlineKeyboardButton().setText("Task 3").setCallbackData("t_3_1")
+//                    new InlineKeyboardButton().setText("Task 3").setCallbackData("t_3_1")
+                    new InlineKeyboardButton().setText("mock").setCallbackData("mock")
             ));
 
     private static ArrayList<InlineKeyboardButton> attempt1 = new ArrayList<>(

@@ -40,8 +40,7 @@ public class InlineKeyboardResponses {
         switch (taskId) {
             case 1: return createSetOfOptions(InlineResponses.getTask1InlineButtons());
             case 2: return createSetOfOptions(InlineResponses.getTask2InlineButtons());
-            //TODO:
-//            case 3: return createSetOfOptions(InlineResponses.getTask3InlineButtons());
+            case 3: return createSetOfOptions(InlineResponses.getTask3InlineButtons());
             default: return null;
         }
     }
