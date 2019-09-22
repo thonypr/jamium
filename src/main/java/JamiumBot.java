@@ -145,12 +145,12 @@ public class JamiumBot extends TelegramLongPollingBot {
                         }
                         break;
                     }
-                    case VIEW_TASK_3: {
-                        response = Validator.task3(update.getMessage().getText());
-                        if (response.equals(Responses.CONGRAT_3)) {
+                    case VIEW_TASK_3_1: {
+                        response = Validator.task3_1(update.getMessage().getText());
+                        if (response.equals(Responses.CONGRAT_3_1)) {
                             SendMessage message = new SendMessage();
-                            UsersController.updateUserState(chatId, State.SOLVED_TASK_3);
-                            DBConnection.updateUser(chatId, State.SOLVED_TASK_3);
+                            UsersController.updateUserState(chatId, State.SOLVED_TASK_3_1);
+                            DBConnection.updateUser(chatId, State.SOLVED_TASK_3_1);
                             message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
                             message.setChatId(chatId);
                             message.setText(response);
@@ -161,7 +161,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             }
                             //TODO: add notification to admin
                             try{
-                                Notificator.sendPost("oo whee! jam#3 captured by " + update.getMessage().getFrom().toString());
+                                Notificator.sendPost("oo whee! jam#3_1 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -172,7 +172,43 @@ public class JamiumBot extends TelegramLongPollingBot {
                                     .setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard())
                                     .setChatId(chatId)
                                     .setAudio("CQADAgADOwMAAnrMCUmeOhUVbsby9QI")
-                                    .setCaption(response + "\n" + Responses.TASK_3);
+                                    .setCaption(response + "\n" + Responses.TASK_3_1);
+                            try {
+                                execute(messageAudio);
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        break;
+                    }
+                    case VIEW_TASK_3_2: {
+                        response = Validator.task3_2(update.getMessage().getText(), update.getMessage().getFrom().getFirstName().toString());
+                        if (response.equals(Responses.CONGRAT_3_2)) {
+                            SendMessage message = new SendMessage();
+                            UsersController.updateUserState(chatId, State.SOLVED_TASK_3_2);
+                            DBConnection.updateUser(chatId, State.SOLVED_TASK_3_2);
+                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                            message.setChatId(chatId);
+                            message.setText(response);
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            //TODO: add notification to admin
+                            try{
+                                Notificator.sendPost("oo whee! jam#3_2 captured by " + update.getMessage().getFrom().toString());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            //and show Task 3_2
+                            SendAudio messageAudio = new SendAudio();
+                            messageAudio.setChatId(chat_id)
+                                    .setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard())
+                                    .setChatId(chatId)
+                                    .setAudio("CQADAgADOwMAAnrMCUmeOhUVbsby9QI")
+                                    .setCaption(response + "\n" + Responses.TASK_3_2);
                             try {
                                 execute(messageAudio);
                             } catch (TelegramApiException e) {
@@ -300,10 +336,10 @@ public class JamiumBot extends TelegramLongPollingBot {
                 }
             }
 
-            else if (call_data.equals("t_3")) {
-                UsersController.updateUserState(chat_id, State.VIEW_TASK_3);
-                DBConnection.updateUser(chat_id, State.VIEW_TASK_3);
-                String answer = "And I'm task 3! " + chat_id;
+            else if (call_data.equals("t_3_1")) {
+                UsersController.updateUserState(chat_id, State.VIEW_TASK_3_1);
+                DBConnection.updateUser(chat_id, State.VIEW_TASK_3_1);
+                String answer = "And I'm task 3_1! " + chat_id;
                 AnswerCallbackQuery callBack = new AnswerCallbackQuery()
                         .setCallbackQueryId(update.getCallbackQuery().getId());
 //                        .setChatId(chat_id)
@@ -318,7 +354,32 @@ public class JamiumBot extends TelegramLongPollingBot {
                 SendAudio message = new SendAudio()
                         .setChatId(chat_id)
                         .setAudio("CQADAgADOwMAAnrMCUmeOhUVbsby9QI")
-                        .setCaption(Responses.TASK_3);
+                        .setCaption(Responses.TASK_3_1);
+                try {
+                    execute(message);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
+            else if (call_data.equals("t_3_2")) {
+                UsersController.updateUserState(chat_id, State.VIEW_TASK_3_2);
+                DBConnection.updateUser(chat_id, State.VIEW_TASK_3_2);
+                String answer = "And I'm task 3_2! " + chat_id;
+                AnswerCallbackQuery callBack = new AnswerCallbackQuery()
+                        .setCallbackQueryId(update.getCallbackQuery().getId());
+//                        .setChatId(chat_id)
+//                        .setMessageId(Integer.valueOf(String.valueOf(message_id)))
+//                        .setText(answer);
+                try {
+                    execute(callBack);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+                //and show Task 2
+                SendAudio message = new SendAudio()
+                        .setChatId(chat_id)
+                        .setAudio("CQADAgADOwMAAnrMCUmeOhUVbsby9QI")
+                        .setCaption(Responses.TASK_3_2);
                 try {
                     execute(message);
                 } catch (TelegramApiException e) {

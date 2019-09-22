@@ -6,11 +6,14 @@ public final class Responses {
             "а это именно 1000003";
     public static final String CLOSE_1 = "Почти! Ещё немного и будет верный ответ!";
     public static final String TASK_2 = "Формат ответа: число";
-    public static final String TASK_3 = "Формат ответа: ТЕСТ";
+    public static final String TASK_3_1 = "Формат ответа: ТЕСТ";
+    public static final String TASK_3_2 = "Формат ответа: ТЕСТ";
     public static final String CONGRAT_2 = "Верно!\n https://www.youtube.com/watch?v=G2_Q9FoD-oQ";
-    public static final String CONGRAT_3 = "Верно!\n Верно";
+    public static final String CONGRAT_3_1 = "Верно!\n Верно";
+    public static final String CONGRAT_3_2 = "Верно!\n Верно";
     public static final String CLOSE_2 = "На верном пути!";
-    public static final String CLOSE_3 = "На верном пути!";
+    public static final String CLOSE_3_1 = "На верном пути!";
+    public static final String CLOSE_3_2 = "На верном пути!";
 
     private Responses() { }
 }

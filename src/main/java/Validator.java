@@ -65,19 +65,45 @@ public class Validator {
         return result;
     }
 
-    public static String task3(String answer) {
+    public static String task3_1(String answer) {
         String result = "";
         Random r = new Random();
 
-        String correctAnswer = System.getenv("TG_JAM_3_ANSWER");
+        String correctAnswer = System.getenv("TG_JAM_3_1_ANSWER");
         List<String> closeAnswers = new ArrayList<>();
-        closeAnswers.add(System.getenv("TG_JAM_3_CLOSE"));
+        closeAnswers.add(System.getenv("TG_JAM_3_1_CLOSE"));
 
         if(answer.equals(correctAnswer)) {
-            result = Responses.CONGRAT_3;
+            result = Responses.CONGRAT_3_1;
         }
-        else if (closeAnswers.contains(answer)) {
-            result = Responses.CLOSE_3;
+        else if (closeAnswers.contains(answer.toLowerCase())) {
+            result = Responses.CLOSE_3_1;
+        }
+        else {
+            try{
+                result = nopes.get(r.nextInt(nopes.size()));
+            }
+            catch (IndexOutOfBoundsException iob)
+            {
+                result = nopes.get(0);
+            }
+        }
+        return result;
+    }
+
+    public static String task3_2(String answer, String correctAnswer) {
+        String result = "";
+        Random r = new Random();
+
+//        String correctAnswer = System.getenv("TG_JAM_3_2_ANSWER");
+        List<String> closeAnswers = new ArrayList<>();
+        closeAnswers.add(System.getenv("TG_JAM_3_2_CLOSE"));
+
+        if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
+            result = Responses.CONGRAT_3_2;
+        }
+        else if (closeAnswers.contains(answer.toLowerCase())) {
+            result = Responses.CLOSE_3_2;
         }
         else {
             try{
