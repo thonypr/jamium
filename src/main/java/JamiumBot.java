@@ -160,7 +160,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             message.setChatId(chat_id)
                                     .setChatId(chatId)
                                     .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
-                                    .setCaption(response + "\n" + Responses.TASK_3_2);
+                                    .setCaption(response);
                             try {
                                 execute(message); // Sending our message object to user
                             } catch (TelegramApiException e) {
@@ -367,6 +367,7 @@ public class JamiumBot extends TelegramLongPollingBot {
             }
 
             else if (call_data.equals("t_3_1")) {
+                //and show Task 3_2
                 UsersController.updateUserState(chat_id, State.VIEW_TASK_3_1);
                 DBConnection.updateUser(chat_id, State.VIEW_TASK_3_1);
                 String answer = "And I'm task 3_1! " + chat_id;
@@ -381,35 +382,10 @@ public class JamiumBot extends TelegramLongPollingBot {
                     e.printStackTrace();
                 }
                 //and show Task 2
-                SendAudio message = new SendAudio()
+                SendDocument message = new SendDocument()
                         .setChatId(chat_id)
-                        .setAudio("CQADAgADOwMAAnrMCUmeOhUVbsby9QI")
+                        .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
                         .setCaption(Responses.TASK_3_1);
-                try {
-                    execute(message);
-                } catch (TelegramApiException e) {
-                    e.printStackTrace();
-                }
-            }
-            else if (call_data.equals("t_3_2")) {
-                UsersController.updateUserState(chat_id, State.VIEW_TASK_3_2);
-                DBConnection.updateUser(chat_id, State.VIEW_TASK_3_2);
-                String answer = "And I'm task 3_2! " + chat_id;
-                AnswerCallbackQuery callBack = new AnswerCallbackQuery()
-                        .setCallbackQueryId(update.getCallbackQuery().getId());
-//                        .setChatId(chat_id)
-//                        .setMessageId(Integer.valueOf(String.valueOf(message_id)))
-//                        .setText(answer);
-                try {
-                    execute(callBack);
-                } catch (TelegramApiException e) {
-                    e.printStackTrace();
-                }
-                //and show Task 2
-                SendAudio message = new SendAudio()
-                        .setChatId(chat_id)
-                        .setAudio("CQADAgADOwMAAnrMCUmeOhUVbsby9QI")
-                        .setCaption(Responses.TASK_3_2);
                 try {
                     execute(message);
                 } catch (TelegramApiException e) {
