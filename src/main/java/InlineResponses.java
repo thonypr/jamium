@@ -11,8 +11,8 @@ public class InlineResponses {
                     //TODO:
                     new InlineKeyboardButton().setText("Jam #1").setCallbackData("t_1"),
                     new InlineKeyboardButton().setText("Jam #2").setCallbackData("t_2"),
-                    new InlineKeyboardButton().setText("mock").setCallbackData("mock")
-//                    new InlineKeyboardButton().setText("Jam #3").setCallbackData("t_3_1")
+//                    new InlineKeyboardButton().setText("mock").setCallbackData("mock")
+                    new InlineKeyboardButton().setText("Jam #3").setCallbackData("t_3_1")
             ));
 
     private static ArrayList<InlineKeyboardButton> medias = new ArrayList<>(
