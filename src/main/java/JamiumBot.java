@@ -161,7 +161,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                     .setChatId(chatId)
                                     .setDocument("CgADAgADbwMAAuOBOUiQwQAB1jjGPFUWBA")
                                     //TODO: fix
-//                                  //prod: 3_2  .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
+//                                  //prod: 3_2  .setDocument("CgADAgADgwMAAlHYOUiEuWvIN2EqJhYE")
                                     .setCaption(response);
                             try {
                                 execute(message); // Sending our message object to user
@@ -182,7 +182,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                     .setChatId(chatId)
                                     .setDocument("BQADAgADbQMAAuOBOUinrjE2XKmIXxYE")
                                     //TODO: fix
-                                    //prod chat 3_1: .setDocument("CgADAgADbgMAAuOBOUjHKggul28N1xYE")
+                                    //prod chat 3_1: .setDocument("BQADAgADgQMAAlHYOUg-U-bUGDyUDRYE")
                                     .setCaption(response + "\n" + Responses.TASK_3_1);
                             try {
                                 execute(messageAudio);
@@ -220,7 +220,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                     .setChatId(chatId)
                                     .setDocument("CgADAgADbwMAAuOBOUiQwQAB1jjGPFUWBA")
                                     //TODO: fix
-//                                  //prod chat 3_2  .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
+//                                  //prod chat 3_2  .setDocument("CgADAgADgwMAAlHYOUiEuWvIN2EqJhYE")
                                     .setCaption(response + "\n" + Responses.TASK_3_2);
                             try {
                                 execute(messageAudio);
@@ -390,7 +390,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 SendDocument message = new SendDocument()
                         .setChatId(chat_id)
                         //TODO: fix
-//                        .setDocument("CgADAgADdgMAAlHYOUieEAWlVz109RYE")
+                        //prod chat 3_1  .setDocument("CgADAgADgwMAAlHYOUiEuWvIN2EqJhYE")
                         .setDocument("BQADAgADbQMAAuOBOUinrjE2XKmIXxYE")
                         .setCaption(Responses.TASK_3_1);
                 try {
