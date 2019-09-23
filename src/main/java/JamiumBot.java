@@ -159,7 +159,8 @@ public class JamiumBot extends TelegramLongPollingBot {
                             //and show Task 3_2
                             message.setChatId(chat_id)
                                     .setChatId(chatId)
-                                    .setDocument("CgADAgADbwMAAuOBOUiQwQAB1jjGPFUWBA")
+                                    .setDocument("CgADAgADQAQAAvY6SEhoXr_uno9atxYE")
+                                    .setCaption("Take my treasure. Mine is yours")
                                     //TODO: fix
 //                                  //prod: 3_2  .setDocument("CgADAgADgwMAAlHYOUiEuWvIN2EqJhYE")
                                     .setCaption(response);
@@ -218,7 +219,8 @@ public class JamiumBot extends TelegramLongPollingBot {
                             messageAudio.setChatId(chat_id)
                                     .setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard())
                                     .setChatId(chatId)
-                                    .setDocument("CgADAgADbwMAAuOBOUiQwQAB1jjGPFUWBA")
+                                    .setDocument("CgADAgADQAQAAvY6SEhoXr_uno9atxYE")
+                                    .setCaption("Take my treasure. Mine is yours")
                                     //TODO: fix
 //                                  //prod chat 3_2  .setDocument("CgADAgADgwMAAlHYOUiEuWvIN2EqJhYE")
                                     .setCaption(response + "\n" + Responses.TASK_3_2);
