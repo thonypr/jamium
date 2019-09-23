@@ -160,10 +160,9 @@ public class JamiumBot extends TelegramLongPollingBot {
                             message.setChatId(chat_id)
                                     .setChatId(chatId)
                                     .setDocument("CgADAgADQAQAAvY6SEhoXr_uno9atxYE")
-                                    .setCaption("Take my treasure. Mine is yours")
+                                    .setCaption("Take my treasure. Mine is yours\n" + response);
                                     //TODO: fix
 //                                  //prod: 3_2  .setDocument("CgADAgADgwMAAlHYOUiEuWvIN2EqJhYE")
-                                    .setCaption(response);
                             try {
                                 execute(message); // Sending our message object to user
                             } catch (TelegramApiException e) {
@@ -220,10 +219,9 @@ public class JamiumBot extends TelegramLongPollingBot {
                                     .setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard())
                                     .setChatId(chatId)
                                     .setDocument("CgADAgADQAQAAvY6SEhoXr_uno9atxYE")
-                                    .setCaption("Take my treasure. Mine is yours")
+                                    .setCaption("Take my treasure. Mine is yours\n" + response + "\n" + Responses.TASK_3_2);
                                     //TODO: fix
 //                                  //prod chat 3_2  .setDocument("CgADAgADgwMAAlHYOUiEuWvIN2EqJhYE")
-                                    .setCaption(response + "\n" + Responses.TASK_3_2);
                             try {
                                 execute(messageAudio);
                             } catch (TelegramApiException e) {
