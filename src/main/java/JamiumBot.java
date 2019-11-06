@@ -242,7 +242,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             message.setChatId(chat_id)
                                     .setText("А для решения второй части задания нужно копнуть чуть поглубже,\n" +
                                             "и найти там нужно то, что делает уникальным\n" +
-                                            "И помните: кто раньше встал - того и тапки\n" + response);
+                                            "И помните: кто раньше встал - того и тапки\n\n" + response);
                             //TODO: fix
 //                                  //prod: 4_2  .setDocument("BLABLA")
                             try {
@@ -268,7 +268,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             message.setChatId(chat_id)
                                     .setPhoto("AgADAgADyasxG5C2GUpgfX7Z0tcMQDHpug8ABAEAAwIAA20AAzv4BAABFgQ")
                                     .setCaption("Для того, чтобы решить это задание,\nВам не нужно знать иностранные языки.\n" +
-                                            "Знаний русского языка и русской литературы будет вполне достаточно\n" + response);
+                                            "Знаний русского языка и русской литературы будет вполне достаточно\n\n" + response);
 
                             //TODO: fix
 //                                  //prod: 4_2  .setDocument("BLABLA")
@@ -314,7 +314,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             message.setChatId(chat_id)
                                     .setText("А для решения второй части задания нужно копнуть чуть поглубже,\n" +
                                             "и найти там нужно то, что делает уникальным\n" +
-                                            "И помните: кто раньше встал - того и тапки\n" + response);
+                                            "И помните: кто раньше встал - того и тапки\n\n" + response);
                             try {
                                 execute(message); // Sending our message object to user
                             } catch (TelegramApiException e) {
@@ -516,7 +516,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 message.setChatId(chat_id)
                         .setPhoto("AgADAgADyasxG5C2GUpgfX7Z0tcMQDHpug8ABAEAAwIAA20AAzv4BAABFgQ")
                         .setCaption("Для того, чтобы решить это задание,\nВам не нужно знать иностранные языки.\n" +
-                                "Знаний русского языка и русской литературы будет вполне достаточно\n" + Responses.TASK_4_1);
+                                "Знаний русского языка и русской литературы будет вполне достаточно\n\n" + Responses.TASK_4_1);
                 try {
                     execute(message); // Sending our message object to user
                 } catch (TelegramApiException e) {
