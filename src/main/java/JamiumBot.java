@@ -266,7 +266,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             message.setCaption(response);
                             //and show Task 4_1
                             message.setChatId(chat_id)
-                                    .setPhoto("AgADAgADyasxG5C2GUpgfX7Z0tcMQDHpug8ABAEAAwIAA20AAzv4BAABFgQ")
+                                    .setPhoto("AgADAgADGa0xG2_XGUqvUnyZ7oO0lpV6XA8ABAEAAwIAA3gAAz8nAQABFgQ")
                                     .setCaption("Для того, чтобы решить это задание,\nВам не нужно знать иностранные языки.\n" +
                                             "Знаний русского языка и русской литературы будет вполне достаточно\n\n" + response);
 
@@ -514,7 +514,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 message.setCaption(Responses.TASK_4_1);
                 //and show Task 4_1
                 message.setChatId(chat_id)
-                        .setPhoto("AgADAgADyasxG5C2GUpgfX7Z0tcMQDHpug8ABAEAAwIAA20AAzv4BAABFgQ")
+                        .setPhoto("AgADAgADGa0xG2_XGUqvUnyZ7oO0lpV6XA8ABAEAAwIAA3gAAz8nAQABFgQ")
                         .setCaption("Для того, чтобы решить это задание,\nВам не нужно знать иностранные языки.\n" +
                                 "Знаний русского языка и русской литературы будет вполне достаточно\n\n" + Responses.TASK_4_1);
                 try {
