@@ -146,11 +146,11 @@ public class Validator {
         return result;
     }
 
-    public static String task4_2(String answer, String correctAnswer) {
+    public static String task4_2(String answer) {
         String result = "";
         Random r = new Random();
 
-//        String correctAnswer = System.getenv("TG_JAM_4_2_ANSWER");
+        String correctAnswer = System.getenv("TG_JAM_4_2_ANSWER");
         List<String> closeAnswers = new ArrayList<>();
         closeAnswers.add(System.getenv("TG_JAM_4_2_CLOSE"));
 
