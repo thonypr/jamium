@@ -289,7 +289,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                         break;
                     }
                     case VIEW_TASK_4_2: {
-                        response = Validator.task4_2(update.getMessage().getText(), update.getMessage().getFrom().getFirstName().toString());
+                        response = Validator.task4_2(update.getMessage().getText());
                         if (response.equals(Responses.CONGRAT_4_2)) {
                             SendMessage message = new SendMessage();
                             UsersController.updateUserState(chatId, State.SOLVED_TASK_4_2);
