@@ -259,14 +259,13 @@ public class JamiumBot extends TelegramLongPollingBot {
                         } else {
                             //and show Task 4_1
                             SendPhoto message = new SendPhoto();
-                            UsersController.updateUserState(chatId, State.VIEW_TASK_4_2);
-                            DBConnection.updateUser(chatId, State.VIEW_TASK_4_2);
+                            UsersController.updateUserState(chatId, State.VIEW_TASK_4_1);
+                            DBConnection.updateUser(chatId, State.VIEW_TASK_4_1);
 //                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
                             message.setChatId(chatId);
                             message.setCaption(response);
-                            //and show Task 4_2
+                            //and show Task 4_1
                             message.setChatId(chat_id)
-                                    .setChatId(chatId)
                                     .setPhoto("AgADAgADyasxG5C2GUpgfX7Z0tcMQDHpug8ABAEAAwIAA20AAzv4BAABFgQ")
                                     .setCaption("Для того, чтобы решить это задание,\nВам не нужно знать иностранные языки.\n" +
                                             "Знаний русского языка и русской литературы будет вполне достаточно\n" + response);
