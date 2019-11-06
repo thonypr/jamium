@@ -230,6 +230,100 @@ public class JamiumBot extends TelegramLongPollingBot {
                         }
                         break;
                     }
+                    case VIEW_TASK_4_1: {
+                        response = Validator.task4_1(update.getMessage().getText());
+                        if (response.equals(Responses.TASK_4_2)) {
+                            SendMessage message = new SendMessage();
+                            UsersController.updateUserState(chatId, State.VIEW_TASK_4_2);
+                            DBConnection.updateUser(chatId, State.VIEW_TASK_4_2);
+//                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                            message.setChatId(chatId);
+                            //and show Task 4_2
+                            message.setChatId(chat_id)
+                                    .setText("А для решения второй части задания нужно копнуть чуть поглубже,\n" +
+                                            "и найти там нужно то, что делает уникальным\n" +
+                                            "И помните: кто раньше встал - того и тапки\n" + response);
+                            //TODO: fix
+//                                  //prod: 4_2  .setDocument("BLABLA")
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            //TODO: add notification to admin
+                            try{
+                                Notificator.sendPost("oo whee! jam#4_1 captured by " + update.getMessage().getFrom().toString());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            //and show Task 4_1
+                            SendPhoto message = new SendPhoto();
+                            UsersController.updateUserState(chatId, State.VIEW_TASK_4_2);
+                            DBConnection.updateUser(chatId, State.VIEW_TASK_4_2);
+//                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                            message.setChatId(chatId);
+                            message.setCaption(response);
+                            //and show Task 4_2
+                            message.setChatId(chat_id)
+                                    .setChatId(chatId)
+                                    .setPhoto("AgADAgADyasxG5C2GUpgfX7Z0tcMQDHpug8ABAEAAwIAA20AAzv4BAABFgQ")
+                                    .setCaption("Для того, чтобы решить это задание,\nВам не нужно знать иностранные языки.\n" +
+                                            "Знаний русского языка и русской литературы будет вполне достаточно\n" + response);
+
+                            //TODO: fix
+//                                  //prod: 4_2  .setDocument("BLABLA")
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            SendAudio audio = new SendAudio();
+                            audio.setChatId(chatId);
+                            audio.setAudio("CQADAgADSAQAApC2GUrvPWnDtO5gQBYE");
+                            try {
+                                execute(audio); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        break;
+                    }
+                    case VIEW_TASK_4_2: {
+                        response = Validator.task4_2(update.getMessage().getText(), update.getMessage().getFrom().getFirstName().toString());
+                        if (response.equals(Responses.CONGRAT_4_2)) {
+                            SendMessage message = new SendMessage();
+                            UsersController.updateUserState(chatId, State.SOLVED_TASK_4_2);
+                            DBConnection.updateUser(chatId, State.SOLVED_TASK_4_2);
+                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                            message.setChatId(chatId);
+                            message.setText(response);
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            //TODO: add notification to admin
+                            try{
+                                Notificator.sendPost("oo whee! jam#4_2 captured by " + update.getMessage().getFrom().toString());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            //and show Task 4_2
+                            SendMessage message = new SendMessage();
+                            message.setChatId(chat_id)
+                                    .setText("А для решения второй части задания нужно копнуть чуть поглубже,\n" +
+                                            "и найти там нужно то, что делает уникальным\n" +
+                                            "И помните: кто раньше встал - того и тапки\n" + response);
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        break;
+                    }
                 }
 
             }
@@ -395,6 +489,49 @@ public class JamiumBot extends TelegramLongPollingBot {
                         .setCaption(Responses.TASK_3_1);
                 try {
                     execute(message);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            else if (call_data.equals("t_4_1")) {
+                //and show Task 4_1
+                UsersController.updateUserState(chat_id, State.VIEW_TASK_4_1);
+                DBConnection.updateUser(chat_id, State.VIEW_TASK_4_1);
+                String answer = "And I'm task 4_1! " + chat_id;
+                AnswerCallbackQuery callBack = new AnswerCallbackQuery()
+                        .setCallbackQueryId(update.getCallbackQuery().getId());
+//                        .setChatId(chat_id)
+//                        .setMessageId(Integer.valueOf(String.valueOf(message_id)))
+//                        .setText(answer);
+                try {
+                    execute(callBack);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+                //and show Task 4_1
+                SendPhoto message = new SendPhoto();
+                UsersController.updateUserState(chat_id, State.VIEW_TASK_4_2);
+                DBConnection.updateUser(chat_id, State.VIEW_TASK_4_2);
+//                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                message.setChatId(chat_id);
+                message.setCaption(Responses.TASK_4_1);
+                //and show Task 4_2
+                message.setChatId(chat_id)
+                        .setChatId(chat_id)
+                        .setPhoto("AgADAgADyasxG5C2GUpgfX7Z0tcMQDHpug8ABAEAAwIAA20AAzv4BAABFgQ")
+                        .setCaption("Для того, чтобы решить это задание,\nВам не нужно знать иностранные языки.\n" +
+                                "Знаний русского языка и русской литературы будет вполне достаточно\n" + Responses.TASK_4_1);
+                try {
+                    execute(message); // Sending our message object to user
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+                SendAudio audio = new SendAudio();
+                audio.setChatId(chat_id);
+                audio.setAudio("CQADAgADSAQAApC2GUrvPWnDtO5gQBYE");
+                try {
+                    execute(audio); // Sending our message object to user
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }

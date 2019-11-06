@@ -7,5 +7,9 @@ public enum State {
     VIEW_TASK_3_1,
     SOLVED_TASK_3_1,
     VIEW_TASK_3_2,
-    SOLVED_TASK_3_2
+    SOLVED_TASK_3_2,
+    VIEW_TASK_4_1,
+    SOLVED_TASK_4_1,
+    VIEW_TASK_4_2,
+    SOLVED_TASK_4_2
 }
