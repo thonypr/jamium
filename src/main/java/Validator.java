@@ -125,6 +125,8 @@ public class Validator {
         List<String> closeAnswers = new ArrayList<>();
         closeAnswers.add(System.getenv("TG_JAM_4_1_CLOSE"));
 
+        System.out.println("answer = " + answer + "; need = " + correctAnswer);
+
         if(answer.equals(correctAnswer)) {
 //            result = Responses.CONGRAT_4_1;
             result = Responses.TASK_4_2;
