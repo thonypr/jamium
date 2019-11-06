@@ -52,7 +52,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 }
             }
 
-            else if (message_text.equals("/start") && !UsersController.hasUser(chat_id)) {
+            else if (message_text.equals("/start")) {
 
                 //process user
                 UsersController.addUser(chat_id);
@@ -72,7 +72,13 @@ public class JamiumBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-            } else if (UsersController.hasUser(chat_id)) {
+
+            }
+//            else if (message_text.equals("/start") && UsersController.hasUser(chat_id)){
+//                 /start and hasUser
+//                 we need to set state of user to WELCOME
+//            }
+            else if (UsersController.hasUser(chat_id)) {
                 // check current state of user
                 //response should be 2
                 Long chatId = update.getMessage().getChatId();
