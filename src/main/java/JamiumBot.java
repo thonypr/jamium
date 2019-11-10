@@ -51,6 +51,31 @@ public class JamiumBot extends TelegramLongPollingBot {
                     e.printStackTrace();
                 }
             }
+            else if (chat_id == 235486635 && message_text.contains("send")) {
+                log(String.valueOf(chat_id), "admin!", "");
+//                    SendPhoto photo = new SendPhoto();
+                // send;id;text
+                String[] parts = message_text.split(";");
+                String id = parts[1];
+                String text = parts[2];
+                try {
+                    Notificator.sendDirectPost(text, id, getBotToken());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                SendMessage msg = new SendMessage()
+                        .setText(String.format("sending directly to: %s message: %s", id, text))
+//                            .setMessageId(update.getMessage().getMessageId())
+                        .setChatId(chat_id);
+//                    photo.setPhoto("AgADAgAD6qcxGwnPsUgOp7-MvnQ8GecvSw0ABGvTl7ObQNPNX7UEAAEC");
+                try {
+                    execute(msg); // Sending our message object to user
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
 
             else if (message_text.equals("/start")) {
 
@@ -275,7 +300,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             message.setCaption(response);
                             //and show Task 4_1
                             message.setChatId(chat_id)
-                                    .setPhoto("AgADAgADqasxG6jMQEp-ll-XRPZWT83Yug8ABAEAAwIAA20AA9osBQABFgQ")
+                                    .setPhoto("AgADAgADs6sxG6jMQEpFvLHLkCFrxF97XA8ABAEAAwIAA3kAA65BAQABFgQ")
                                     .setCaption("Для того, чтобы решить это задание,\nВам не нужно знать иностранные языки.\n" +
                                             "Знаний русского языка и русской литературы будет вполне достаточно\n\n" + response);
 
@@ -521,7 +546,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 message.setCaption(Responses.TASK_4_1);
                 //and show Task 4_1
                 message.setChatId(chat_id)
-                        .setPhoto("AgADAgADqasxG6jMQEp-ll-XRPZWT83Yug8ABAEAAwIAA20AA9osBQABFgQ")
+                        .setPhoto("AgADAgADs6sxG6jMQEpFvLHLkCFrxF97XA8ABAEAAwIAA3kAA65BAQABFgQ")
                         .setCaption("Для того, чтобы решить это задание,\nВам не нужно знать иностранные языки.\n" +
                                 "Знаний русского языка и русской литературы будет вполне достаточно\n\n" + Responses.TASK_4_1);
                 try {

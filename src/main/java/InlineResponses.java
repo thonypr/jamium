@@ -50,7 +50,8 @@ public class InlineResponses {
 
     private static ArrayList<InlineKeyboardButton> admins = new ArrayList<>(
             Arrays.asList(
-                    new InlineKeyboardButton().setText("Users").setCallbackData("a_g")
+                    new InlineKeyboardButton().setText("Users").setCallbackData("a_g"),
+                    new InlineKeyboardButton().setText("Send text").setCallbackData("a_t")
             ));
 
     public static List<InlineKeyboardButton> getTasksInlineButtons() {
