@@ -126,6 +126,8 @@ public class Validator {
 
         String[] cerceau = {"просо", "мясо", "колесо", "двинятин", "лассо", "крупье", "серсо"};
         String[] poets = {"блок", "пушкин", "есенин", "цветаева", "ахматова"};
+        String[] berlios = {"берлиоз", "берлиос"};
+        String[] master = {"мастер", "маргарита", "мастер и маргарита", "булгаков", "аннушка"};
 
         System.out.println("answer = " + answer + "; need = " + correctAnswer);
 
@@ -152,6 +154,14 @@ public class Validator {
         }
         else if (Arrays.asList(poets).contains(answer.toLowerCase())) {
             result = "Направление правильное - речь о русских поэтах, осталось выбрать нужного!";
+        }
+        else if (Arrays.asList(berlios).contains(answer.toLowerCase())) {
+            result = "Направление верное!\n" +
+                    "Осталось понять, с чем чаще всего ассоциируется Берлиоз (не забывай про текстовую подсказку в задании!)";
+        }
+        else if (Arrays.asList(master).contains(answer.toLowerCase())) {
+            result = "Направление верное!\n" +
+                    "Нас интересует персонаж из Мастера и Маргариты, но какой?";
         }
         else {
             try{
