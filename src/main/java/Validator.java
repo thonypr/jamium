@@ -172,12 +172,16 @@ public class Validator {
         String correctAnswer = System.getenv("TG_JAM_4_2_ANSWER");
         List<String> closeAnswers = new ArrayList<>();
         closeAnswers.add(System.getenv("TG_JAM_4_2_CLOSE"));
+        String[] close = {"код", "код станции"};
 
         if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
             result = Responses.CONGRAT_4_2;
         }
         else if (closeAnswers.contains(answer.toLowerCase())) {
             result = Responses.CLOSE_4_2;
+        }
+        else if (Arrays.asList(close).contains(answer.toLowerCase())) {
+            result = "Да, здесь важен код станции!\nНе забывай про форму вопроса!";
         }
         else {
             try{
