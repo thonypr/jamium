@@ -122,8 +122,9 @@ public class Validator {
         String correctAnswer = System.getenv("TG_JAM_4_1_ANSWER");
         List<String> closeAnswers = new ArrayList<>();
         closeAnswers.add(System.getenv("TG_JAM_4_1_CLOSE"));
+        closeAnswers.add("трамваи");
 
-        String[] cerceau = {"просо", "мясо", "колесо", "двинятин", "лассо", "крупье"};
+        String[] cerceau = {"просо", "мясо", "колесо", "двинятин", "лассо", "крупье", "серсо"};
         String[] poets = {"блок", "пушкин", "есенин", "цветаева", "ахматова"};
 
         System.out.println("answer = " + answer + "; need = " + correctAnswer);
