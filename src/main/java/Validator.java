@@ -124,9 +124,7 @@ public class Validator {
         Random r = new Random();
 
         String correctAnswer = System.getenv("TG_JAM_4_1_ANSWER");
-        List<String> closeAnswers = new ArrayList<>();
-        closeAnswers.add(System.getenv("TG_JAM_4_1_CLOSE"));
-        closeAnswers.add("трамваи");
+        String[] closeAnswers = {System.getenv("TG_JAM_4_1_CLOSE"), "трамваи"};
 
         String[] cerceau = {"просо", "мясо", "колесо", "двинятин", "лассо", "крупье", "серсо"};
         String[] poets = {"блок", "пушкин", "есенин", "цветаева", "ахматова"};
@@ -139,7 +137,7 @@ public class Validator {
 //            result = Responses.CONGRAT_4_1;
             result = Responses.TASK_4_2;
         }
-        else if (closeAnswers.contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), (String[])closeAnswers.toArray())) {
+        else if (stringContainsItemFromList(answer.toLowerCase(), closeAnswers)) {
             result = Responses.CLOSE_4_1;
         }
         else if (Arrays.asList(cerceau).contains(answer.toLowerCase()) ||
