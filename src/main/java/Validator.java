@@ -130,6 +130,7 @@ public class Validator {
         String[] poets = {"блок", "пушкин", "есенин", "цветаева", "ахматова"};
         String[] berlios = {"берлиоз", "берлиос"};
         String[] master = {"мастер", "маргарита", "мастер и маргарита", "булгаков", "аннушка"};
+        String[] rhyme = {"рифма", "стихи", "стих", "поэт", "поэты", "литература", "рифмуются", "ямб"};
 
         System.out.println("answer = " + answer + "; need = " + correctAnswer);
 
@@ -158,6 +159,10 @@ public class Validator {
         else if (Arrays.asList(poets).contains(answer.toLowerCase()) ||
         stringContainsItemFromList(answer.toLowerCase(), poets)) {
             result = "Направление правильное - речь о русских поэтах, осталось выбрать нужного!";
+        }
+        else if (Arrays.asList(rhyme).contains(answer.toLowerCase()) ||
+                stringContainsItemFromList(answer.toLowerCase(), rhyme)) {
+            result = "Отлично подмечено - строчки и правда рифмуются!\nЗдорово, да?\nНо что с этим делать дальше?\nВспомнить условие :)";
         }
         else if (Arrays.asList(berlios).contains(answer.toLowerCase()) ||
         stringContainsItemFromList(answer.toLowerCase(), berlios)) {
