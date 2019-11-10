@@ -237,7 +237,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                         break;
                     }
                     case VIEW_TASK_4_1: {
-                        response = Validator.task4_1(update.getMessage().getText());
+                        response = Validator.task4_1(update.getMessage().getText(), update.getMessage().getFrom().getFirstName());
                         if (response.equals(Responses.TASK_4_2)) {
                             SendMessage message = new SendMessage();
                             UsersController.updateUserState(chatId, State.VIEW_TASK_4_2);
@@ -272,12 +272,10 @@ public class JamiumBot extends TelegramLongPollingBot {
                             message.setCaption(response);
                             //and show Task 4_1
                             message.setChatId(chat_id)
-                                    .setPhoto("AgADAgADGa0xG2_XGUqvUnyZ7oO0lpV6XA8ABAEAAwIAA3gAAz8nAQABFgQ")
+                                    .setPhoto("AgADAgADoqsxG6jMQEqD4y1Z1OByBnABuA8ABAEAAwIAA20AA3mQBgABFgQ")
                                     .setCaption("Для того, чтобы решить это задание,\nВам не нужно знать иностранные языки.\n" +
                                             "Знаний русского языка и русской литературы будет вполне достаточно\n\n" + response);
 
-                            //TODO: fix
-//                                  //prod: 4_2  .setDocument("BLABLA")
                             try {
                                 execute(message); // Sending our message object to user
                             } catch (TelegramApiException e) {
@@ -520,7 +518,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 message.setCaption(Responses.TASK_4_1);
                 //and show Task 4_1
                 message.setChatId(chat_id)
-                        .setPhoto("AgADAgADGa0xG2_XGUqvUnyZ7oO0lpV6XA8ABAEAAwIAA3gAAz8nAQABFgQ")
+                        .setPhoto("AgADAgADoqsxG6jMQEqD4y1Z1OByBnABuA8ABAEAAwIAA20AA3mQBgABFgQ")
                         .setCaption("Для того, чтобы решить это задание,\nВам не нужно знать иностранные языки.\n" +
                                 "Знаний русского языка и русской литературы будет вполне достаточно\n\n" + Responses.TASK_4_1);
                 try {

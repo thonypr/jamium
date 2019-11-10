@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Validator {
 
@@ -117,13 +115,16 @@ public class Validator {
         }
         return result;
     }
-    public static String task4_1(String answer) {
+    public static String task4_1(String answer, String firstname) {
         String result = "";
         Random r = new Random();
 
         String correctAnswer = System.getenv("TG_JAM_4_1_ANSWER");
         List<String> closeAnswers = new ArrayList<>();
         closeAnswers.add(System.getenv("TG_JAM_4_1_CLOSE"));
+
+        String[] cerceau = {"просо", "мясо", "колесо", "двинятин", "лассо", "крупье"};
+        String[] poets = {"блок", "пушкин", "есенин", "цветаева", "ахматова"};
 
         System.out.println("answer = " + answer + "; need = " + correctAnswer);
 
@@ -133,6 +134,23 @@ public class Validator {
         }
         else if (closeAnswers.contains(answer.toLowerCase())) {
             result = Responses.CLOSE_4_1;
+        }
+        else if (Arrays.asList(cerceau).contains(answer.toLowerCase())) {
+            String[] responses = {firstname + ".\n" + firstname.toUpperCase() + "!\nЭто я не вам :)",
+                    "Нужна вам подачка - берите!",
+                    "Да заберите вы себе это очко!"};
+            int length = 3;
+
+            try{
+                result = responses[(r.nextInt(length))];
+            }
+            catch (IndexOutOfBoundsException iob)
+            {
+                result = responses[0];
+            }
+        }
+        else if (Arrays.asList(poets).contains(answer.toLowerCase())) {
+            result = "Направление правильное - речь о русских поэтах, осталось выбрать нужного!";
         }
         else {
             try{
