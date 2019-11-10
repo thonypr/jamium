@@ -275,9 +275,11 @@ public class JamiumBot extends TelegramLongPollingBot {
                             message.setChatId(chatId);
                             //and show Task 4_2
                             message.setChatId(chat_id)
-                                    .setText("А для решения \nвторой части задания \nнужно копнуть чуть поглубже,\n" +
-                                            "и найти там нужно то, что делает \nуникальным." +
-                                            " И помните: кто раньше встал - того и тапки\n\n" + response);
+                                    .setText("А для решения \n" +
+                                            "второй части задания \n" +
+                                            "нужно копнуть чуть поглубже,\n" +
+                                            "и не кое-где, а там, где подсказала первая часть.\n" +
+                                            "И найти там нужно то, что делает уникальным. И помните: кто раньше встал - того и тапки\n\n" + response);
                             //TODO: fix
 //                                  //prod: 4_2  .setDocument("BLABLA")
                             try {
@@ -345,9 +347,11 @@ public class JamiumBot extends TelegramLongPollingBot {
                             //and show Task 4_2
                             SendMessage message = new SendMessage();
                             message.setChatId(chat_id)
-                                    .setText("А для решения \nвторой части задания \nнужно копнуть чуть поглубже,\n" +
-                                            "и найти там нужно то, что делает \nуникальным." +
-                                            " И помните: кто раньше встал - того и тапки\n\n" + response);
+                                    .setText("А для решения \n" +
+                                            "второй части задания \n" +
+                                            "нужно копнуть чуть поглубже,\n" +
+                                            "и не кое-где, а там, где подсказала первая часть.\n" +
+                                            "И найти там нужно то, что делает уникальным. И помните: кто раньше встал - того и тапки\n\n" + response);
                             try {
                                 execute(message); // Sending our message object to user
                             } catch (TelegramApiException e) {

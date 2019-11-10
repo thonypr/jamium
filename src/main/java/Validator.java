@@ -116,6 +116,9 @@ public class Validator {
         }
         return result;
     }
+    public static boolean stringContainsItemFromList(String inputStr, String[] items) {
+        return Arrays.stream(items).parallel().anyMatch(inputStr::contains);
+    }
     public static String task4_1(String answer, String firstname) {
         String result = "";
         Random r = new Random();
@@ -136,10 +139,11 @@ public class Validator {
 //            result = Responses.CONGRAT_4_1;
             result = Responses.TASK_4_2;
         }
-        else if (closeAnswers.contains(answer.toLowerCase())) {
+        else if (closeAnswers.contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), (String[])closeAnswers.toArray())) {
             result = Responses.CLOSE_4_1;
         }
-        else if (Arrays.asList(cerceau).contains(answer.toLowerCase())) {
+        else if (Arrays.asList(cerceau).contains(answer.toLowerCase()) ||
+        stringContainsItemFromList(answer.toLowerCase(), cerceau)) {
             String[] responses = {firstname + ".\n" + firstname.toUpperCase() + "!\nЭто я не вам :)",
                     "Нужна вам подачка - берите!",
                     "Да заберите вы себе это очко!"};
@@ -153,14 +157,17 @@ public class Validator {
                 result = responses[0];
             }
         }
-        else if (Arrays.asList(poets).contains(answer.toLowerCase())) {
+        else if (Arrays.asList(poets).contains(answer.toLowerCase()) ||
+        stringContainsItemFromList(answer.toLowerCase(), poets)) {
             result = "Направление правильное - речь о русских поэтах, осталось выбрать нужного!";
         }
-        else if (Arrays.asList(berlios).contains(answer.toLowerCase())) {
+        else if (Arrays.asList(berlios).contains(answer.toLowerCase()) ||
+        stringContainsItemFromList(answer.toLowerCase(), berlios)) {
             result = "Направление верное!\n" +
                     "Осталось понять, с чем чаще всего ассоциируется Берлиоз (не забывай про текстовую подсказку в задании!)";
         }
-        else if (Arrays.asList(master).contains(answer.toLowerCase())) {
+        else if (Arrays.asList(master).contains(answer.toLowerCase()) ||
+        stringContainsItemFromList(answer.toLowerCase(), master)) {
             result = "Направление верное!\n" +
                     "Нас интересует персонаж из Мастера и Маргариты, но какой?";
         }
@@ -183,15 +190,15 @@ public class Validator {
         String correctAnswer = System.getenv("TG_JAM_4_2_ANSWER");
         List<String> closeAnswers = new ArrayList<>();
         closeAnswers.add(System.getenv("TG_JAM_4_2_CLOSE"));
-        String[] close = {"код", "код станции"};
+        String[] close = {"код", "код станции", "станция"};
 
         if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
             result = Responses.CONGRAT_4_2;
         }
-        else if (closeAnswers.contains(answer.toLowerCase())) {
+        else if (closeAnswers.contains(answer.toLowerCase()) || answer.toLowerCase().contains(closeAnswers.get(0))) {
             result = Responses.CLOSE_4_2;
         }
-        else if (Arrays.asList(close).contains(answer.toLowerCase())) {
+        else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
             result = "Да, здесь важен код станции!\nНе забывай про форму вопроса!";
         }
         else {
