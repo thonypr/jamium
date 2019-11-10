@@ -109,10 +109,12 @@ public class JamiumBot extends TelegramLongPollingBot {
                 Long chatId = update.getMessage().getChatId();
                 State userState = UsersController.getUser(chatId).getUserState();
                 try {
-                    Notificator.sendDebug(String.format("User %s \nin state = %s says\n%s\n%s",
+                    Notificator.sendDebug(String.format("User %s \nin state = %s says\n%s\n%s\n%s",
                             update.getMessage().getFrom().toString(),
-                            userState, update.getMessage().getText(),
-                            "@" + update.getMessage().getFrom().getUserName()));
+                            userState,
+                            update.getMessage().getText(),
+                            "@" + update.getMessage().getFrom().getUserName(),
+                            update.getMessage().getFrom().getId()));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
