@@ -132,7 +132,7 @@ public class Validator {
 
         System.out.println("answer = " + answer + "; need = " + correctAnswer);
 
-        if(answer.equals(correctAnswer)) {
+        if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
 //            result = Responses.CONGRAT_4_1;
             result = Responses.TASK_4_2;
         }
