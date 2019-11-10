@@ -79,6 +79,14 @@ public class JamiumBot extends TelegramLongPollingBot {
 
             else if (message_text.equals("/start")) {
 
+                if(!UsersController.hasUser(chat_id)) {
+                    try {
+                        Notificator.sendDebug(String.format("User %s started", update.getMessage().getFrom().toString()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
                 //process user
                 UsersController.addUser(chat_id);
                 DBConnection.addUser(chat_id, State.WELCOME);
@@ -87,6 +95,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 message.setChatId(chat_id);
                 String userName = update.getMessage().getFrom().getFirstName();
                 message.setText(Responses.WELCOME.replace("X", userName));
+
                 //TODO: flexible tasks list
 //                List<TaskDB> tasks = DBConnection.getTasks().stream().filter(t -> t.getIsActive()).collect(Collectors.toList());
                 message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
