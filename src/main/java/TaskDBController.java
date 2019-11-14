@@ -32,7 +32,7 @@ public class TaskDBController {
         return tasks.containsKey(taskId);
     }
 
-    public static void addtask(Long taskId) {
+    public static void addTask(Long taskId) {
         if(tasks.containsKey(taskId)) {
             // we have him here
             JamiumBot.log(taskId.toString(), "We got it!", "");

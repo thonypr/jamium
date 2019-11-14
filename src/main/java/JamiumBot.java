@@ -83,7 +83,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 // taska;id
                 String[] parts = message_text.split(";");
                 String id = parts[1];
-                TaskDBController.addtask(Long.valueOf(id));
+                TaskDBController.addTask(Long.valueOf(id));
 
             }
 
