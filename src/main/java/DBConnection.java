@@ -95,4 +95,44 @@ public class DBConnection {
         }
         return tasks;
     }
+
+    public static void updateTask(Long taskId, boolean state) {
+        if (taskId == null) {
+            Notificator.sendToAdmin("updateState - ERROR: userId = " + taskId + "; state = " + state);
+        } else {
+            PreparedStatement stm = null;
+            try {
+                stm = getConnection().prepareStatement("UPDATE task SET is_active = ? WHERE id = ?");
+                stm.setLong(2, taskId);
+                stm.setBoolean(1, state);
+                stm.execute();
+                stm.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (URISyntaxException e) {
+                Notificator.sendToAdmin("updateTask - ERROR: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void addTask(Long taskId, boolean state) {
+        if (taskId == null) {
+            Notificator.sendToAdmin("addTask - ERROR: userId = " + taskId + "; state = " + state);
+        } else {
+            PreparedStatement stm = null;
+            try {
+                stm = getConnection().prepareStatement(String.format("INSERT INTO task VALUES (?, 'task%s', ?)", taskId));
+                stm.setBoolean(2, state);
+                stm.setLong(1, taskId);
+                stm.execute();
+                stm.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (URISyntaxException e) {
+                Notificator.sendToAdmin("addTask - ERROR: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+    }
 }

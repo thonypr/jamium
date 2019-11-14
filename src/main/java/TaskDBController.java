@@ -40,6 +40,7 @@ public class TaskDBController {
         else {
             TaskDB newTask = new TaskDB(taskId, false);
             tasks.put(taskId, newTask);
+            DBConnection.addTask(taskId, false);
             JamiumBot.log(taskId.toString(), "Collected!", "");
         }
     }
@@ -48,6 +49,7 @@ public class TaskDBController {
         if(tasks.containsKey(taskId)) {
             TaskDB newTask = new TaskDB(taskId, isActive);
             tasks.replace(taskId, newTask);
+            DBConnection.updateTask(taskId, isActive);
             JamiumBot.log(taskId.toString(), "Changed state to " + isActive, "");
         }
         else
