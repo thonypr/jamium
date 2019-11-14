@@ -10,7 +10,7 @@ public class InlineResponses {
             Arrays.asList(
                     //TODO:вернуть номер 2
                     new InlineKeyboardButton().setText("Jam #1").setCallbackData("t_1"),
-//                    new InlineKeyboardButton().setText("Jam #2").setCallbackData("t_2"),
+                    new InlineKeyboardButton().setText("Jam #2").setCallbackData("t_2"),
 //                    new InlineKeyboardButton().setText("mock").setCallbackData("mock")
                     new InlineKeyboardButton().setText("Jam #3").setCallbackData("t_3_1"),
                     new InlineKeyboardButton().setText("Jam #4").setCallbackData("t_4_1")
@@ -59,7 +59,7 @@ public class InlineResponses {
         List<InlineKeyboardButton> filtered = new ArrayList<>();
         for(int i = 0; i < tasks.size(); i++) {
             System.out.println(String.format("tasks RT = %s; tasksDB = %s", tasks.toString(), TaskDBController.getTasks()));
-            if(TaskDBController.getTask((long)i+1).getIsActive()) {
+            if(TaskDBController.getTask((long) i).getIsActive()) {
                 filtered.add(tasks.get(i));
             }
         }
