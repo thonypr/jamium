@@ -193,17 +193,17 @@ public class Validator {
         String correctAnswer = System.getenv("TG_JAM_4_2_ANSWER");
         List<String> closeAnswers = new ArrayList<>();
         closeAnswers.add(System.getenv("TG_JAM_4_2_CLOSE"));
-        String[] close = {"маяковская"};
-        String[] metro = {"метро", "станция метро", "метрополитен"};
+        String[] close = {"т9"};
+        String[] word = {"хорошо"};
 
         if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
             result = Responses.CONGRAT_4_2;
         }
         else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
-            result = "Да, речь о ней!";
+            result = "Очень близко!";
         }
-        else if (Arrays.asList(metro).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), metro)) {
-            result = "Да, сейчас речь о метрополитене!";
+        else if (Arrays.asList(word).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), word)) {
+            result = "Ну разве ж это число?\nКонечно нет, \nно да, с этим словом надо что-то сделать :)";
         }
         else {
             try{
