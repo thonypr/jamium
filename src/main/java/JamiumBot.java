@@ -284,11 +284,14 @@ public class JamiumBot extends TelegramLongPollingBot {
                             message.setChatId(chatId);
                             //and show Task 4_2
                             message.setChatId(chat_id)
-                                    .setText("А для решения \n" +
-                                            "второй части задания \n" +
-                                            "нужно копнуть чуть поглубже,\n" +
-                                            "и не кое-где, а там, где подсказала первая часть.\n" +
-                                            "И найти там нужно то, что делает уникальным. И помните: кто раньше встал - того и тапки\n\n" + response);
+                                    .setText("Ответ очень близко -- ну же,\n" +
+                                            "\t\tмеж строк, товарищ, гляди!\n" +
+                                            "\t\t\t\tИ в зной, и в зимнюю стужу,\n" +
+                                            "\t\t\t\t\t\tзайди туда -- и найди!\n" +
+                                            "Нет ответа -- ну что ж,\n" +
+                                            "\t\tбудет и здесь праздник,\n" +
+                                            "\t\t\t\tесть ответ -- хорошо!\n" +
+                                            "\t\t\t\t\t\tзначит и ты соучастник!\n\n" + response);
                             //TODO: fix
 //                                  //prod: 4_2  .setDocument("BLABLA")
                             try {
@@ -356,11 +359,14 @@ public class JamiumBot extends TelegramLongPollingBot {
                             //and show Task 4_2
                             SendMessage message = new SendMessage();
                             message.setChatId(chat_id)
-                                    .setText("А для решения \n" +
-                                            "второй части задания \n" +
-                                            "нужно копнуть чуть поглубже,\n" +
-                                            "и не кое-где, а там, где подсказала первая часть.\n" +
-                                            "И найти там нужно то, что делает уникальным. И помните: кто раньше встал - того и тапки\n\n" + response);
+                                    .setText("Ответ очень близко -- ну же,\n" +
+                                            "\t\tмеж строк, товарищ, гляди!\n" +
+                                            "\t\t\t\tИ в зной, и в зимнюю стужу,\n" +
+                                            "\t\t\t\t\t\tзайди туда -- и найди!\n" +
+                                            "Нет ответа -- ну что ж,\n" +
+                                            "\t\tбудет и здесь праздник,\n" +
+                                            "\t\t\t\tесть ответ -- хорошо!\n" +
+                                            "\t\t\t\t\t\tзначит и ты соучастник!\n\n" + response);
                             try {
                                 execute(message); // Sending our message object to user
                             } catch (TelegramApiException e) {

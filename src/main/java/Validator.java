@@ -193,7 +193,8 @@ public class Validator {
         String correctAnswer = System.getenv("TG_JAM_4_2_ANSWER");
         List<String> closeAnswers = new ArrayList<>();
         closeAnswers.add(System.getenv("TG_JAM_4_2_CLOSE"));
-        String[] close = {"код", "код станции", "станция"};
+        String[] close = {"маяковская"};
+        String[] metro = {"метро", "станция метро", "метрополитен"};
 
         if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
             result = Responses.CONGRAT_4_2;
@@ -202,7 +203,10 @@ public class Validator {
             result = Responses.CLOSE_4_2;
         }
         else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
-            result = "Да, здесь важен код станции!\nНе забывай про форму вопроса!";
+            result = "Да, речь о ней!";
+        }
+        else if (Arrays.asList(metro).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), metro)) {
+            result = "Да, сейчас речь о метрополитене!";
         }
         else {
             try{
