@@ -53,7 +53,7 @@ public class InlineKeyboardResponses {
         // Collect options
         KeyboardRow options = new KeyboardRow();
         for(TaskDB task : tasks) {
-            KeyboardButton btn = new KeyboardButton().setText(task.getName());
+            KeyboardButton btn = new KeyboardButton().setText("");
             options.add(btn);
         }
         rowsInline.add(options);
