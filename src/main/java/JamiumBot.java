@@ -320,7 +320,15 @@ public class JamiumBot extends TelegramLongPollingBot {
                                             "Нет ответа -- ну что ж,\n" +
                                             "\t\tбудет и здесь праздник,\n" +
                                             "\t\t\t\tесть ответ -- хорошо!\n" +
-                                            "\t\t\t\t\t\tзначит и ты соучастник!\n\n" + response);
+                                            "\t\t\t\t\t\tзначит и ты соучастник!\n" +
+                                            "\n" +
+                                            "Не нужно здесь много писать\n" +
+                                            "\t\tНе нужно быть умным старцем\n" +
+                                            "\t\t\t\tвсего-то хватит того,\n" +
+                                            "\t\t\t\t\t\tчтоб по кнопкам \n" +
+                                            "\t\t\t\t\t\t\t\tтелефона \n" +
+                                            "\t\t\t\t\t\t\t\tпотыкать \n" +
+                                            "\t\t\t\t\t\t\t\tпальцем!\n\n" + response);
                             //TODO: fix
 //                                  //prod: 4_2  .setDocument("BLABLA")
                             try {
@@ -395,7 +403,15 @@ public class JamiumBot extends TelegramLongPollingBot {
                                             "Нет ответа -- ну что ж,\n" +
                                             "\t\tбудет и здесь праздник,\n" +
                                             "\t\t\t\tесть ответ -- хорошо!\n" +
-                                            "\t\t\t\t\t\tзначит и ты соучастник!\n\n" + response);
+                                            "\t\t\t\t\t\tзначит и ты соучастник!\n" +
+                                            "\n" +
+                                            "Не нужно здесь много писать\n" +
+                                            "\t\tНе нужно быть умным старцем\n" +
+                                            "\t\t\t\tвсего-то хватит того,\n" +
+                                            "\t\t\t\t\t\tчтоб по кнопкам \n" +
+                                            "\t\t\t\t\t\t\t\tтелефона \n" +
+                                            "\t\t\t\t\t\t\t\tпотыкать \n" +
+                                            "\t\t\t\t\t\t\t\tпальцем!\n\n" + response);
                             try {
                                 execute(message); // Sending our message object to user
                             } catch (TelegramApiException e) {
