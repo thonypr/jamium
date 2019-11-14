@@ -199,9 +199,6 @@ public class Validator {
         if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
             result = Responses.CONGRAT_4_2;
         }
-        else if (closeAnswers.contains(answer.toLowerCase()) || answer.toLowerCase().contains(closeAnswers.get(0))) {
-            result = Responses.CLOSE_4_2;
-        }
         else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
             result = "Да, речь о ней!";
         }
