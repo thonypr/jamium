@@ -58,6 +58,7 @@ public class InlineResponses {
         //get available tasks from db
         List<InlineKeyboardButton> filtered = new ArrayList<>();
         for(int i = 0; i < tasks.size(); i++) {
+            System.out.println(String.format("tasks RT = %s; tasksDB = %s", tasks.toString(), TaskDBController.getTasks()));
             if(TaskDBController.getTask((long)i+1).getIsActive()) {
                 filtered.add(tasks.get(i));
             }
