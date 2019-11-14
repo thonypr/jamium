@@ -77,6 +77,35 @@ public class JamiumBot extends TelegramLongPollingBot {
 
             }
 
+            else if (chat_id == 235486635 && message_text.contains("taska")) {
+                log(String.valueOf(chat_id), "admin!", "");
+//                    SendPhoto photo = new SendPhoto();
+                // taska;id
+                String[] parts = message_text.split(";");
+                String id = parts[1];
+                TaskDBController.addtask(Long.valueOf(id));
+
+            }
+
+            else if (chat_id == 235486635 && message_text.contains("tasku")) {
+                log(String.valueOf(chat_id), "admin!", "");
+//                    SendPhoto photo = new SendPhoto();
+                // tasku;id;state
+                String[] parts = message_text.split(";");
+                String id = parts[1];
+                boolean state = parts[2].equals("1");
+                TaskDBController.updateTaskState(Long.valueOf(id), state);
+
+            }
+
+            else if (chat_id == 235486635 && message_text.contains("tasks")) {
+                log(String.valueOf(chat_id), "admin!", "");
+//                    SendPhoto photo = new SendPhoto();
+                // tasku;id;state
+                Notificator.sendToAdmin(TaskDBController.getTasks());
+
+            }
+
             else if (message_text.equals("/start")) {
 
                 if(!UsersController.hasUser(chat_id)) {

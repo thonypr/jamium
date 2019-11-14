@@ -21,6 +21,8 @@ public class Main {
             // get DB info about users states
             HashMap<Long, User> users = DBConnection.getUsers();
             UsersController.setUsers(users);
+            HashMap<Long, TaskDB> tasks = DBConnection.getTasks();
+            TaskDBController.setTasks(tasks);
             botsApi.registerBot((LongPollingBot) new JamiumBot());
 //            botsApi.registerBot((LongPollingBot) new Notificator());
         } catch (TelegramApiException e) {

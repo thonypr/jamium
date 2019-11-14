@@ -55,7 +55,15 @@ public class InlineResponses {
             ));
 
     public static List<InlineKeyboardButton> getTasksInlineButtons() {
-        return tasks;
+        //get available tasks from db
+        List<InlineKeyboardButton> filtered = new ArrayList<>();
+        for(int i = 0; i < tasks.size(); i++) {
+            if(TaskDBController.getTask((long)i+1).getIsActive()) {
+                filtered.add(tasks.get(i));
+            }
+        }
+
+        return filtered;
     }
 
     public static List<InlineKeyboardButton> getMediaButtons() {
