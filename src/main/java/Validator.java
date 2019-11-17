@@ -139,7 +139,7 @@ public class Validator {
             result = Responses.TASK_4_2;
         }
         else if (stringContainsItemFromList(answer.toLowerCase(), closeAnswers)) {
-            result = Responses.CLOSE_4_1;
+            result = Responses.CLOSE_4_1 + "\n" + Responses.TASK_4_1;
         }
         else if (Arrays.asList(cerceau).contains(answer.toLowerCase()) ||
         stringContainsItemFromList(answer.toLowerCase(), cerceau)) {
@@ -153,26 +153,26 @@ public class Validator {
             }
             catch (IndexOutOfBoundsException iob)
             {
-                result = responses[0];
+                result = responses[0] + "\n" + Responses.TASK_4_1;
             }
         }
         else if (Arrays.asList(poets).contains(answer.toLowerCase()) ||
         stringContainsItemFromList(answer.toLowerCase(), poets)) {
-            result = "Направление правильное - речь о русских поэтах, осталось выбрать нужного!";
+            result = "Направление правильное - речь о русских поэтах, осталось выбрать нужного!" + "\n" + Responses.TASK_4_1;
         }
         else if (Arrays.asList(rhyme).contains(answer.toLowerCase()) ||
                 stringContainsItemFromList(answer.toLowerCase(), rhyme)) {
-            result = "Отлично подмечено - строчки и правда рифмуются!\nЗдорово, да?\nНо что с этим делать дальше?\nВспомнить условие :)";
+            result = "Отлично подмечено - строчки и правда рифмуются!\nЗдорово, да?\nНо что с этим делать дальше?\nВспомнить условие :)" + "\n" + Responses.TASK_4_1;
         }
         else if (Arrays.asList(berlios).contains(answer.toLowerCase()) ||
         stringContainsItemFromList(answer.toLowerCase(), berlios)) {
             result = "Направление верное!\n" +
-                    "Осталось понять, с чем чаще всего ассоциируется Берлиоз (не забывай про текстовую подсказку в задании!)";
+                    "Осталось понять, с чем чаще всего ассоциируется Берлиоз (не забывай про текстовую подсказку в задании!)" + "\n" + Responses.TASK_4_1;
         }
         else if (Arrays.asList(master).contains(answer.toLowerCase()) ||
         stringContainsItemFromList(answer.toLowerCase(), master)) {
             result = "Направление верное!\n" +
-                    "Нас интересует персонаж из Мастера и Маргариты, но какой?";
+                    "Нас интересует персонаж из Мастера и Маргариты, но какой?" + "\n" + Responses.TASK_4_1;
         }
         else {
             try{
@@ -180,7 +180,7 @@ public class Validator {
             }
             catch (IndexOutOfBoundsException iob)
             {
-                result = nopes.get(0);
+                result = nopes.get(0) + "\n" + Responses.TASK_4_1;
             }
         }
         return result;
@@ -202,16 +202,16 @@ public class Validator {
             result = Responses.CONGRAT_4_2;
         }
         else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
-            result = "Очень близко!";
+            result = "Очень близко!" + "\n" + Responses.TASK_4_2;
         }
         else if (Arrays.asList(word).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), word)) {
-            result = "Ну разве ж это число?\nКонечно нет, \nно да, с этим словом надо что-то сделать :)";
+            result = "Ну разве ж это число?\nКонечно нет, \nно да, с этим словом надо что-то сделать :)" + "\n" + Responses.TASK_4_2;
         }
         else if (Arrays.asList(metro).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), metro)) {
-            result = "Да, теперь речь идёт о метрополитене, причём в том же городе, \nгде ходят трамваи из первой части :)";
+            result = "Да, теперь речь идёт о метрополитене, причём в том же городе, \nгде ходят трамваи из первой части :)" + "\n" + Responses.TASK_4_2;
         }
         else if (Arrays.asList(mayak).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), mayak)) {
-            result = "Верно, речь всё ещё о Маяковском!";
+            result = "Верно, речь всё ещё о Маяковском!" + "\n" + Responses.TASK_4_2;
         }
         else {
             try{
@@ -219,7 +219,7 @@ public class Validator {
             }
             catch (IndexOutOfBoundsException iob)
             {
-                result = nopes.get(0);
+                result = nopes.get(0) + "\n" + Responses.TASK_4_2;
             }
         }
         return result;
