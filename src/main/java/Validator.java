@@ -196,7 +196,7 @@ public class Validator {
         String[] close = {"т9"};
         String[] word = {"хорошо"};
         String[] metro = {"метро", "метрополитен"};
-        String[] mayak = {"маяковский"};
+        String[] mayak = {"маяковск"};
 
         if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
             result = Responses.CONGRAT_4_2;
