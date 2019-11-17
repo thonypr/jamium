@@ -149,7 +149,7 @@ public class Validator {
             int length = 3;
 
             try{
-                result = responses[(r.nextInt(length))];
+                result = responses[(r.nextInt(length))] + "\n" + Responses.TASK_4_1;
             }
             catch (IndexOutOfBoundsException iob)
             {
@@ -176,7 +176,7 @@ public class Validator {
         }
         else {
             try{
-                result = nopes.get(r.nextInt(nopes.size()));
+                result = nopes.get(r.nextInt(nopes.size())) + "\n" + Responses.TASK_4_1;
             }
             catch (IndexOutOfBoundsException iob)
             {
@@ -215,7 +215,7 @@ public class Validator {
         }
         else {
             try{
-                result = nopes.get(r.nextInt(nopes.size()));
+                result = nopes.get(r.nextInt(nopes.size())) + "\n" + Responses.TASK_4_2;
             }
             catch (IndexOutOfBoundsException iob)
             {
