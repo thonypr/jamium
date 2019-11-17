@@ -195,6 +195,8 @@ public class Validator {
         closeAnswers.add(System.getenv("TG_JAM_4_2_CLOSE"));
         String[] close = {"т9"};
         String[] word = {"хорошо"};
+        String[] metro = {"метро", "метрополитен"};
+        String[] mayak = {"маяковский"};
 
         if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
             result = Responses.CONGRAT_4_2;
@@ -204,6 +206,12 @@ public class Validator {
         }
         else if (Arrays.asList(word).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), word)) {
             result = "Ну разве ж это число?\nКонечно нет, \nно да, с этим словом надо что-то сделать :)";
+        }
+        else if (Arrays.asList(metro).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), metro)) {
+            result = "Да, теперь речь идёт о метрополитене, причём в том же городе, \nгде ходят трамваи из первой части :)";
+        }
+        else if (Arrays.asList(mayak).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), mayak)) {
+            result = "Верно, речь всё ещё о Маяковском!";
         }
         else {
             try{
