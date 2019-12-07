@@ -42,6 +42,7 @@ public class InlineKeyboardResponses {
             case 2: return createSetOfOptions(InlineResponses.getTask2InlineButtons());
             case 3: return createSetOfOptions(InlineResponses.getTask3InlineButtons());
             case 4: return createSetOfOptions(InlineResponses.getTask4InlineButtons());
+            case 5: return createSetOfOptions(InlineResponses.getTask5InlineButtons());
             default: return null;
         }
     }
