@@ -440,15 +440,14 @@ public class JamiumBot extends TelegramLongPollingBot {
                             }
                         } else {
                             //and show Task 5
-                            SendPhoto message = new SendPhoto();
+                            SendMessage message = new SendMessage();
                             UsersController.updateUserState(chatId, State.VIEW_TASK_5);
                             DBConnection.updateUser(chatId, State.VIEW_TASK_5);
 //                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
                             message.setChatId(chatId);
-                            message.setCaption(response);
+                            message.setText(response);
                             //and show Task 5
-                            message.setChatId(chat_id)
-                                    .setCaption("Задание 5" + response);
+                            message.setText("Задание 5" + response);
 
                             try {
                                 execute(message); // Sending our message object to user
@@ -682,12 +681,11 @@ public class JamiumBot extends TelegramLongPollingBot {
                     e.printStackTrace();
                 }
                 //and show Task 5
-                SendPhoto message = new SendPhoto();
-                message.setChatId(chat_id);
-                message.setCaption(Responses.TASK_5);
+                SendMessage message = new SendMessage();
+                message.setText(Responses.TASK_5);
                 //and show Task 5
                 message.setChatId(chat_id)
-                        .setCaption("Задание 5" + Responses.TASK_5);
+                        .setText("Задание 5" + Responses.TASK_5);
                 try {
                     execute(message); // Sending our message object to user
                 } catch (TelegramApiException e) {
