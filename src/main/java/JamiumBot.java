@@ -418,6 +418,46 @@ public class JamiumBot extends TelegramLongPollingBot {
                         }
                         break;
                     }
+                    case VIEW_TASK_5: {
+                        response = Validator.task5(update.getMessage().getText());
+                        if (response.equals(Responses.CONGRAT_5)) {
+                            SendMessage message = new SendMessage();
+                            UsersController.updateUserState(chatId, State.SOLVED_TASK_5);
+                            DBConnection.updateUser(chatId, State.SOLVED_TASK_5);
+                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                            message.setChatId(chatId);
+                            message.setText(response);
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            //TODO: add notification to admin
+                            try{
+                                Notificator.sendPost("oo whee! jam#5 captured by " + update.getMessage().getFrom().toString());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            //and show Task 5
+                            SendPhoto message = new SendPhoto();
+                            UsersController.updateUserState(chatId, State.VIEW_TASK_5);
+                            DBConnection.updateUser(chatId, State.VIEW_TASK_5);
+//                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                            message.setChatId(chatId);
+                            message.setCaption(response);
+                            //and show Task 5
+                            message.setChatId(chat_id)
+                                    .setCaption("Задание 5" + response);
+
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        break;
+                    }
                 }
 
             }
@@ -622,6 +662,34 @@ public class JamiumBot extends TelegramLongPollingBot {
                 audio.setAudio("CQADAgADSAQAApC2GUrvPWnDtO5gQBYE");
                 try {
                     execute(audio); // Sending our message object to user
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            else if (call_data.equals("t_5")) {
+                //and show Task 5
+                UsersController.updateUserState(chat_id, State.VIEW_TASK_5);
+                DBConnection.updateUser(chat_id, State.VIEW_TASK_5);
+                AnswerCallbackQuery callBack = new AnswerCallbackQuery()
+                        .setCallbackQueryId(update.getCallbackQuery().getId());
+//                        .setChatId(chat_id)
+//                        .setMessageId(Integer.valueOf(String.valueOf(message_id)))
+//                        .setText(answer);
+                try {
+                    execute(callBack);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+                //and show Task 5
+                SendPhoto message = new SendPhoto();
+                message.setChatId(chat_id);
+                message.setCaption(Responses.TASK_5);
+                //and show Task 5
+                message.setChatId(chat_id)
+                        .setCaption("Задание 5" + Responses.TASK_5);
+                try {
+                    execute(message); // Sending our message object to user
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }

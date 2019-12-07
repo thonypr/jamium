@@ -13,7 +13,11 @@ public class InlineResponses {
                     new InlineKeyboardButton().setText("Jam #2").setCallbackData("t_2"),
 //                    new InlineKeyboardButton().setText("mock").setCallbackData("mock")
                     new InlineKeyboardButton().setText("Jam #3").setCallbackData("t_3_1"),
-                    new InlineKeyboardButton().setText("Jam #4").setCallbackData("t_4_1")
+                    new InlineKeyboardButton().setText("Jam #4").setCallbackData("t_4_1"),
+                    new InlineKeyboardButton().setText("Jam #5").setCallbackData("t_5"),
+                    new InlineKeyboardButton().setText("Jam #5_1").setCallbackData("t_5_1"),
+                    new InlineKeyboardButton().setText("Jam #5_2").setCallbackData("t_5_2"),
+                    new InlineKeyboardButton().setText("Jam #5_3").setCallbackData("t_5_3")
             ));
 
     private static ArrayList<InlineKeyboardButton> medias = new ArrayList<>(
@@ -41,6 +45,26 @@ public class InlineResponses {
     private static ArrayList<InlineKeyboardButton> task4 = new ArrayList<>(
             Arrays.asList(
                     new InlineKeyboardButton().setText("Task 4").setCallbackData("t_4_1")
+            ));
+
+    private static ArrayList<InlineKeyboardButton> task5 = new ArrayList<>(
+            Arrays.asList(
+                    new InlineKeyboardButton().setText("Task 5").setCallbackData("t_5")
+            ));
+
+    private static ArrayList<InlineKeyboardButton> task5_1 = new ArrayList<>(
+            Arrays.asList(
+                    new InlineKeyboardButton().setText("Task 5_1").setCallbackData("t_5_1")
+            ));
+
+    private static ArrayList<InlineKeyboardButton> task5_2 = new ArrayList<>(
+            Arrays.asList(
+                    new InlineKeyboardButton().setText("Task 5_2").setCallbackData("t_5_2")
+            ));
+
+    private static ArrayList<InlineKeyboardButton> task5_3 = new ArrayList<>(
+            Arrays.asList(
+                    new InlineKeyboardButton().setText("Task 5_3").setCallbackData("t_5_3")
             ));
 
     private static ArrayList<InlineKeyboardButton> attempt1 = new ArrayList<>(
@@ -94,6 +118,22 @@ public class InlineResponses {
 
     public static List<InlineKeyboardButton> getTask4InlineButtons() {
         return task4;
+    }
+
+    public static List<InlineKeyboardButton> getTask5InlineButtons() {
+        return task5;
+    }
+
+    public static List<InlineKeyboardButton> getTask5_1InlineButtons() {
+        return task5_1;
+    }
+
+    public static List<InlineKeyboardButton> getTask5_2InlineButtons() {
+        return task5_2;
+    }
+
+    public static List<InlineKeyboardButton> getTask5_3InlineButtons() {
+        return task5_3;
     }
 
 }
