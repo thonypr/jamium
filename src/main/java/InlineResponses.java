@@ -14,8 +14,8 @@ public class InlineResponses {
 //                    new InlineKeyboardButton().setText("mock").setCallbackData("mock")
                     new InlineKeyboardButton().setText("Jam #3").setCallbackData("t_3_1"),
                     new InlineKeyboardButton().setText("Jam #4").setCallbackData("t_4_1"),
-                    new InlineKeyboardButton().setText("Jam #5").setCallbackData("t_5")
-//                    new InlineKeyboardButton().setText("Jam #5_1").setCallbackData("t_5_1"),
+                    new InlineKeyboardButton().setText("Jam #5").setCallbackData("t_5"),
+                    new InlineKeyboardButton().setText("Jam #5_1").setCallbackData("t_5_1")
 //                    new InlineKeyboardButton().setText("Jam #5_2").setCallbackData("t_5_2"),
 //                    new InlineKeyboardButton().setText("Jam #5_3").setCallbackData("t_5_3")
             ));
