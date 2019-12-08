@@ -303,4 +303,29 @@ public class Validator {
         return result;
     }
 
+    public static String task5_3(String answer) {
+        String result = "";
+        Random r = new Random();
+
+        String correctAnswer = System.getenv("TG_JAM_5_3_ANSWER");
+        String[] close = {"блисс", "bliss"};
+
+        if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
+            result = Responses.CONGRAT_5_3;
+        }
+        else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
+            result = "Да, ты блисско!" + "\n" + Responses.TASK_5_3;
+        }
+        else {
+            try{
+                result = nopes.get(r.nextInt(nopes.size())) + "\n" + Responses.TASK_5_3;
+            }
+            catch (IndexOutOfBoundsException iob)
+            {
+                result = nopes.get(0) + "\n" + Responses.TASK_5_3;
+            }
+        }
+        return result;
+    }
+
 }

@@ -538,6 +538,43 @@ public class JamiumBot extends TelegramLongPollingBot {
                         }
                         break;
                     }
+                    case VIEW_TASK_5_3: {
+                        response = Validator.task5_3(update.getMessage().getText());
+                        if (response.equals(Responses.CONGRAT_5_3)) {
+                            SendMessage message = new SendMessage();
+                            UsersController.updateUserState(chatId, State.SOLVED_TASK_5_3);
+                            DBConnection.updateUser(chatId, State.SOLVED_TASK_5_3);
+                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                            message.setChatId(chatId);
+                            message.setText(response);
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            //TODO: add notification to admin
+                            try{
+                                Notificator.sendPost("oo whee! jam#5_3 captured by " + update.getMessage().getFrom().toString());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            //and show Task 5_3
+                            SendPhoto message = new SendPhoto();
+                            UsersController.updateUserState(chat_id, State.VIEW_TASK_5_3);
+                            DBConnection.updateUser(chat_id, State.VIEW_TASK_5_3);
+//                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                            message.setPhoto("AgADAgADw6sxG9hMYUuJjrrVtcbgEkp5wQ8ABAEAAwIAA20AA993AQABFgQ");
+                            message.setChatId(chat_id);
+                            message.setCaption(String.format("%s \n\n%s", response, Responses.TASK_5_3_TEXT));
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        break;
+                    }
                 }
 
             }
@@ -804,7 +841,7 @@ public class JamiumBot extends TelegramLongPollingBot {
             }
 
             else if (call_data.equals("t_5_2")) {
-                //and show Task 5_1
+                //and show Task 5_2
                 UsersController.updateUserState(chat_id, State.VIEW_TASK_5_2);
                 DBConnection.updateUser(chat_id, State.VIEW_TASK_5_2);
                 AnswerCallbackQuery callBack = new AnswerCallbackQuery()
@@ -836,6 +873,35 @@ public class JamiumBot extends TelegramLongPollingBot {
                 message2.setChatId(chat_id);
                 try {
                     execute(message2); // Sending our message object to user
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            else if (call_data.equals("t_5_3")) {
+                //and show Task 5_3
+                UsersController.updateUserState(chat_id, State.VIEW_TASK_5_3);
+                DBConnection.updateUser(chat_id, State.VIEW_TASK_5_3);
+                AnswerCallbackQuery callBack = new AnswerCallbackQuery()
+                        .setCallbackQueryId(update.getCallbackQuery().getId());
+//                        .setChatId(chat_id)
+//                        .setMessageId(Integer.valueOf(String.valueOf(message_id)))
+//                        .setText(answer);
+                try {
+                    execute(callBack);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+                //and show Task 5_3
+                SendPhoto message = new SendPhoto();
+                UsersController.updateUserState(chat_id, State.VIEW_TASK_5_3);
+                DBConnection.updateUser(chat_id, State.VIEW_TASK_5_3);
+//                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                message.setPhoto("AgADAgADw6sxG9hMYUuJjrrVtcbgEkp5wQ8ABAEAAwIAA20AA993AQABFgQ");
+                message.setChatId(chat_id);
+                message.setCaption(String.format("%s \n\n%s", Responses.TASK_5_3_TEXT, Responses.TASK_5_3));
+                try {
+                    execute(message); // Sending our message object to user
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
