@@ -258,16 +258,13 @@ public class Validator {
         Random r = new Random();
 
         String correctAnswer = System.getenv("TG_JAM_5_1_ANSWER");
-        String[] close = {"т9"};
-        String[] word = {"хорошо"};
-        String[] metro = {"метро", "метрополитен"};
-        String[] mayak = {"маяковск"};
+        String[] close = {"футурама", "бендер", "фрай", "лила", "futurama", "bender", "fry", "leela"};
 
         if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
             result = Responses.CONGRAT_5_1;
         }
         else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
-            result = "Очень близко!" + "\n" + Responses.TASK_5_1;
+            result = "Да, это персонажи из этого мультсериала!" + "\n" + Responses.TASK_5_1;
         }
         else {
             try{

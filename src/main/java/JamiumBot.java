@@ -483,7 +483,7 @@ public class JamiumBot extends TelegramLongPollingBot {
 //                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
                             message.setPhoto("AgADAgADoKwxG5kOYUuwmdyJF0-sfWmpwg8ABAEAAwIAA3gAA6x6AQABFgQ");
                             message.setChatId(chatId);
-                            message.setCaption(String.format("%s \n %s", Responses.TASK_5_1_TEXT, response));
+                            message.setCaption(String.format("%s \n%s", response, Responses.TASK_5_1_TEXT));
                             try {
                                 execute(message); // Sending our message object to user
                             } catch (TelegramApiException e) {
@@ -749,7 +749,7 @@ public class JamiumBot extends TelegramLongPollingBot {
 //                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
                 message.setPhoto("AgADAgADoKwxG5kOYUuwmdyJF0-sfWmpwg8ABAEAAwIAA3gAA6x6AQABFgQ");
                 message.setChatId(chat_id);
-                message.setCaption(String.format("%s \n %s", Responses.TASK_5_1_TEXT, Responses.TASK_5_1));
+                message.setCaption(String.format("%s \n%s", Responses.TASK_5_1_TEXT, Responses.TASK_5_1));
                 try {
                     execute(message); // Sending our message object to user
                 } catch (TelegramApiException e) {
