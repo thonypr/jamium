@@ -303,12 +303,17 @@ public class Validator {
 
         String correctAnswer = System.getenv("TG_JAM_5_3_ANSWER");
         String[] close = {"блисс", "bliss"};
+        String[] lol = {"42"};
+        String lolMsg = "-. .. -.-. . - .-. -.-- .-.. --- .-..";
 
         if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
             result = Responses.CONGRAT_5_3;
         }
         else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
             result = "Да, ты блисско!" + "\n" + Responses.TASK_5_3;
+        }
+        else if (answer.equals("42")) {
+            result = lolMsg;
         }
         else {
             try{
