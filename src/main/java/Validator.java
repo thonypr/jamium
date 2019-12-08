@@ -230,16 +230,10 @@ public class Validator {
         Random r = new Random();
 
         String correctAnswer = System.getenv("TG_JAM_5_ANSWER");
-        String[] close = {"т9"};
-        String[] word = {"хорошо"};
-        String[] metro = {"метро", "метрополитен"};
-        String[] mayak = {"маяковск"};
 
+        System.out.println(String.format("Founds %s and need %s %s", answer, correctAnswer, answer.equals(correctAnswer)));
         if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
             result = Responses.CONGRAT_5;
-        }
-        else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
-            result = "Очень близко!" + "\n" + Responses.TASK_5;
         }
         else {
             try{
