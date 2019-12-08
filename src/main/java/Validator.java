@@ -11,6 +11,8 @@ public class Validator {
         }
     };
 
+    public static String lolMsg = "-. .. -.-. . - .-. -.-- .-.. --- .-..";
+
     public static String task1(String answer) {
         String result = "";
         Random r = new Random();
@@ -235,6 +237,9 @@ public class Validator {
         if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
             result = Responses.CONGRAT_5;
         }
+        else if (answer.equals("42")) {
+            result = lolMsg;
+        }
         else {
             try{
                 result = nopes.get(r.nextInt(nopes.size())) + "\n" + Responses.TASK_5;
@@ -259,6 +264,9 @@ public class Validator {
         }
         else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
             result = "Да, это персонажи из этого мультсериала!" + "\n" + Responses.TASK_5_1;
+        }
+        else if (answer.equals("42")) {
+            result = lolMsg;
         }
         else {
             try{
@@ -285,6 +293,9 @@ public class Validator {
         else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
             result = "Да, ты близко!" + "\n" + Responses.TASK_5_2;
         }
+        else if (answer.equals("42")) {
+            result = lolMsg;
+        }
         else {
             try{
                 result = nopes.get(r.nextInt(nopes.size())) + "\n" + Responses.TASK_5_2;
@@ -305,7 +316,7 @@ public class Validator {
         String[] close = {"блисс", "bliss"};
         String[] esperanto = {"эсперанто", "esperanto"};
         String[] lol = {"42"};
-        String lolMsg = "-. .. -.-. . - .-. -.-- .-.. --- .-..";
+
 
         if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
             result = Responses.CONGRAT_5_3;
