@@ -303,7 +303,7 @@ public class Validator {
 
         String correctAnswer = System.getenv("TG_JAM_5_3_ANSWER");
         String[] close = {"блисс", "bliss"};
-        String[] esperanto = {"эсеранто", "esperanto"};
+        String[] esperanto = {"эсперанто", "esperanto"};
         String[] lol = {"42"};
         String lolMsg = "-. .. -.-. . - .-. -.-- .-.. --- .-..";
 
