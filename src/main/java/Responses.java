@@ -24,8 +24,12 @@ public final class Responses {
             "Рассказать о впечатлениях от задания можно мне в личку, \nбуду очень благодарен за обратную связь: @aprimako";
     public static final String CLOSE_4_1 = "Да, речь идёт о питерских трамваях!\nНужно понять, что дальше делать с этим :)";
     public static final String CLOSE_4_2 = "Да, сейчас речь идёт о метрополитене!";
-    public static final String TASK_5 = "Текст задания 5";
+    public static final String TASK_5 = "Формат ответа: число";
+    public static final String TASK_5_1 = "Формат ответа: число";
+    public static final String TASK_5_2 = "Формат ответа: число";
+    public static final String TASK_5_3 = "Формат ответа: число";
     public static final String CONGRAT_5 = "Текст ответа 5";
+    public static final String CONGRAT_5_1 = "Текст ответа 5_1";
 
     private Responses() { }
 }

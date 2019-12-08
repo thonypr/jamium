@@ -457,6 +457,45 @@ public class JamiumBot extends TelegramLongPollingBot {
                         }
                         break;
                     }
+                    case VIEW_TASK_5_1: {
+                        response = Validator.task5_1(update.getMessage().getText());
+                        if (response.equals(Responses.CONGRAT_5_1)) {
+                            SendMessage message = new SendMessage();
+                            UsersController.updateUserState(chatId, State.SOLVED_TASK_5_1);
+                            DBConnection.updateUser(chatId, State.SOLVED_TASK_5_1);
+                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                            message.setChatId(chatId);
+                            message.setText(response);
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            //TODO: add notification to admin
+                            try{
+                                Notificator.sendPost("oo whee! jam#5_1 captured by " + update.getMessage().getFrom().toString());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            //and show Task 5_1
+                            SendMessage message = new SendMessage();
+                            UsersController.updateUserState(chatId, State.VIEW_TASK_5_1);
+                            DBConnection.updateUser(chatId, State.VIEW_TASK_5_1);
+//                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                            message.setChatId(chatId);
+                            message.setText(response);
+                            //and show Task 5
+                            message.setText("Задание 5_1" + response);
+
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        break;
+                    }
                 }
 
             }
@@ -686,6 +725,33 @@ public class JamiumBot extends TelegramLongPollingBot {
                 //and show Task 5
                 message.setChatId(chat_id)
                         .setText("Задание 5" + Responses.TASK_5);
+                try {
+                    execute(message); // Sending our message object to user
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            else if (call_data.equals("t_5_1")) {
+                //and show Task 5_1
+                UsersController.updateUserState(chat_id, State.VIEW_TASK_5_1);
+                DBConnection.updateUser(chat_id, State.VIEW_TASK_5_1);
+                AnswerCallbackQuery callBack = new AnswerCallbackQuery()
+                        .setCallbackQueryId(update.getCallbackQuery().getId());
+//                        .setChatId(chat_id)
+//                        .setMessageId(Integer.valueOf(String.valueOf(message_id)))
+//                        .setText(answer);
+                try {
+                    execute(callBack);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+                //and show Task 5_1
+                SendMessage message = new SendMessage();
+                message.setText(Responses.TASK_5_1);
+                //and show Task 5_1
+                message.setChatId(chat_id)
+                        .setText("Задание 5" + Responses.TASK_5_1);
                 try {
                     execute(message); // Sending our message object to user
                 } catch (TelegramApiException e) {
