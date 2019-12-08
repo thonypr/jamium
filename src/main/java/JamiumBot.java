@@ -520,7 +520,7 @@ public class JamiumBot extends TelegramLongPollingBot {
 //                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
                             message.setPhoto("AgADAgADwasxG9hMYUv0_ZEbZm-VeGXsug8ABAEAAwIAA3kAA9FjBgABFgQ");
                             message.setChatId(chat_id);
-                            message.setCaption(String.format("%s \n\n%s", Responses.TASK_5_2_TEXT, Responses.TASK_5_2));
+                            message.setCaption(String.format("%s \n\n%s \n\n%s", response, Responses.TASK_5_2_TEXT, Responses.TASK_5_2));
                             try {
                                 execute(message); // Sending our message object to user
                             } catch (TelegramApiException e) {
