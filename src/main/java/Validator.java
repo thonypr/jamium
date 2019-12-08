@@ -303,6 +303,7 @@ public class Validator {
 
         String correctAnswer = System.getenv("TG_JAM_5_3_ANSWER");
         String[] close = {"блисс", "bliss"};
+        String[] esperanto = {"эсеранто", "esperanto"};
         String[] lol = {"42"};
         String lolMsg = "-. .. -.-. . - .-. -.-- .-.. --- .-..";
 
@@ -311,6 +312,10 @@ public class Validator {
         }
         else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
             result = "Да, ты блисско!" + "\n" + Responses.TASK_5_3;
+        }
+        else if (Arrays.asList(esperanto).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), esperanto)) {
+            result = "Нееет, эсперанто, конечно, указывают как универсальный язык," +
+                    "но нам всё-таки нужен такой, где не буквы, а картиночки :)\nИщи дальше!" + "\n" + Responses.TASK_5_3;
         }
         else if (answer.equals("42")) {
             result = lolMsg;
