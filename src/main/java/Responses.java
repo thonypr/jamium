@@ -25,11 +25,11 @@ public final class Responses {
     public static final String CLOSE_4_1 = "Да, речь идёт о питерских трамваях!\nНужно понять, что дальше делать с этим :)";
     public static final String CLOSE_4_2 = "Да, сейчас речь идёт о метрополитене!";
     public static final String TASK_5 = "Формат ответа: число";
-    public static final String TASK_5_TEXT = "Σ";
+    public static final String TASK_5_TEXT = "Один за всех - и все за одного!";
     public static final String TASK_5_1 = "Формат ответа: число";
     public static final String TASK_5_2 = "Формат ответа: число";
     public static final String TASK_5_3 = "Формат ответа: число";
-    public static final String CONGRAT_5 = "Да, нужно просто сложить то, что в остальных частях получилось!";
+    public static final String CONGRAT_5 = "Да, нужно сложить те частички, которые получились в остальных заданиях и ответить на финальный вопрос про Бендера!";
     public static final String CONGRAT_5_1 = "Да, речь шла о Футураме! И нужно было просто сказать, " +
             "в каком году начали в России отмечать Новый Год 1 января!\n" +
             "Самое время приступить к остальным частям задания!";

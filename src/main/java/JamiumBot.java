@@ -485,6 +485,16 @@ public class JamiumBot extends TelegramLongPollingBot {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
+                            //and show key for 5_1
+                            SendPhoto part5_1 = new SendPhoto();
+                            part5_1.setPhoto("AgADAgADEqwxG9hMYUs8v_PJTClnb6Tcug8ABAEAAwIAA3kAAw9gBgABFgQ");
+                            part5_1.setChatId(chat_id);
+                            part5_1.setCaption("Ключ 5-1");
+                            try {
+                                execute(part5_1); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
                         } else {
                             //and show Task 5_1
                             SendPhoto message = new SendPhoto();
@@ -520,6 +530,16 @@ public class JamiumBot extends TelegramLongPollingBot {
                             try{
                                 Notificator.sendPost("oo whee! jam#5_2 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            //and show key for 5_2
+                            SendPhoto part5_2 = new SendPhoto();
+                            part5_2.setPhoto("AgADAgADXKsxG5kOaUtFTm7kqHA0oRLdug8ABAEAAwIAA3kAAyxmBgABFgQ");
+                            part5_2.setChatId(chat_id);
+                            part5_2.setCaption("Ключ 5-2");
+                            try {
+                                execute(part5_2); // Sending our message object to user
+                            } catch (TelegramApiException e) {
                                 e.printStackTrace();
                             }
                         } else {
@@ -566,6 +586,16 @@ public class JamiumBot extends TelegramLongPollingBot {
                             try{
                                 Notificator.sendPost("oo whee! jam#5_3 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            //and show key for 5_3
+                            SendPhoto part5_3 = new SendPhoto();
+                            part5_3.setPhoto("AgADAgADXasxG5kOaUvS3hmo8JwMNJvJuQ8ABAEAAwIAA3kAA-5zBgABFgQ");
+                            part5_3.setChatId(chat_id);
+                            part5_3.setCaption("Ключ 5-3");
+                            try {
+                                execute(part5_3); // Sending our message object to user
+                            } catch (TelegramApiException e) {
                                 e.printStackTrace();
                             }
                         } else {
