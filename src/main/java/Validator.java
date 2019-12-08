@@ -257,25 +257,25 @@ public class Validator {
         String result = "";
         Random r = new Random();
 
-        String correctAnswer = System.getenv("TG_JAM_5_ANSWER");
+        String correctAnswer = System.getenv("TG_JAM_5_1_ANSWER");
         String[] close = {"т9"};
         String[] word = {"хорошо"};
         String[] metro = {"метро", "метрополитен"};
         String[] mayak = {"маяковск"};
 
         if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
-            result = Responses.CONGRAT_5;
+            result = Responses.CONGRAT_5_1;
         }
         else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
-            result = "Очень близко!" + "\n" + Responses.TASK_5;
+            result = "Очень близко!" + "\n" + Responses.TASK_5_1;
         }
         else {
             try{
-                result = nopes.get(r.nextInt(nopes.size())) + "\n" + Responses.TASK_5;
+                result = nopes.get(r.nextInt(nopes.size())) + "\n" + Responses.TASK_5_1;
             }
             catch (IndexOutOfBoundsException iob)
             {
-                result = nopes.get(0) + "\n" + Responses.TASK_5;
+                result = nopes.get(0) + "\n" + Responses.TASK_5_1;
             }
         }
         return result;
