@@ -455,7 +455,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             DBConnection.updateUser(chatId, State.VIEW_TASK_5);
 //                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
                             message.setChatId(chatId);
-                            message.setText(String.format("%s \n %s", Responses.TASK_5_TEXT, response));
+                            message.setText(String.format("%s \n%s", Responses.TASK_5_TEXT, response));
                             //and show Task 5
                             try {
                                 execute(message); // Sending our message object to user
