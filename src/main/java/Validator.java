@@ -278,4 +278,29 @@ public class Validator {
         return result;
     }
 
+    public static String task5_2(String answer) {
+        String result = "";
+        Random r = new Random();
+
+        String correctAnswer = System.getenv("TG_JAM_5_2_ANSWER");
+        String[] close = {"20!", "20", "стереограмма"};
+
+        if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
+            result = Responses.CONGRAT_5_2;
+        }
+        else if (Arrays.asList(close).contains(answer.toLowerCase()) || stringContainsItemFromList(answer.toLowerCase(), close)) {
+            result = "Да, ты близко!" + "\n" + Responses.TASK_5_2;
+        }
+        else {
+            try{
+                result = nopes.get(r.nextInt(nopes.size())) + "\n" + Responses.TASK_5_2;
+            }
+            catch (IndexOutOfBoundsException iob)
+            {
+                result = nopes.get(0) + "\n" + Responses.TASK_5_2;
+            }
+        }
+        return result;
+    }
+
 }
