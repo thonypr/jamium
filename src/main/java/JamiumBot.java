@@ -432,6 +432,16 @@ public class JamiumBot extends TelegramLongPollingBot {
                             } catch (TelegramApiException e) {
                                 e.printStackTrace();
                             }
+                            //add greeting on bliss
+                            SendPhoto greet = new SendPhoto();
+                            greet.setPhoto("AgADAgADMasxG5kOaUvIx4pCxXJNyHNjXA8ABAEAAwIAA20AA7uIAgABFgQ");
+                            greet.setChatId(chatId);
+                            try {
+                                execute(greet); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+
                             //TODO: add notification to admin
                             try{
                                 Notificator.sendPost("oo whee! jam#5 captured by " + update.getMessage().getFrom().toString());
@@ -445,7 +455,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             DBConnection.updateUser(chatId, State.VIEW_TASK_5);
 //                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
                             message.setChatId(chatId);
-                            message.setText(String.format("%s \n %s", Responses.TASK_5_1_TEXT, response));
+                            message.setText(String.format("%s \n %s", Responses.TASK_5_TEXT, response));
                             //and show Task 5
                             try {
                                 execute(message); // Sending our message object to user
@@ -798,12 +808,13 @@ public class JamiumBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-                //and show Task 5
+                //and show Task 5_1
                 SendMessage message = new SendMessage();
-                message.setText(Responses.TASK_5);
-                //and show Task 5
-                message.setChatId(chat_id)
-                        .setText("Задание 5_1" + Responses.TASK_5);
+                UsersController.updateUserState(chat_id, State.VIEW_TASK_5);
+                DBConnection.updateUser(chat_id, State.VIEW_TASK_5);
+//                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                message.setChatId(chat_id);
+                message.setText(String.format("%s \n\n%s", Responses.TASK_5_TEXT, Responses.TASK_5));
                 try {
                     execute(message); // Sending our message object to user
                 } catch (TelegramApiException e) {
