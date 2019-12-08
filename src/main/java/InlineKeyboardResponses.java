@@ -12,9 +12,14 @@ public class InlineKeyboardResponses {
     public static InlineKeyboardMarkup createSetOfOptions(List<InlineKeyboardButton> options) {
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
-        List<InlineKeyboardButton> rowInline = new ArrayList<>();
+
         // Collect options
         rowsInline.add(options);
+        for(InlineKeyboardButton btn : options) {
+            List<InlineKeyboardButton> rowInline = new ArrayList<>();
+            rowInline.add(btn);
+            rowsInline.add(rowInline);
+        }
         List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
         // Add it to the message
         markupInline.setKeyboard(rowsInline);
