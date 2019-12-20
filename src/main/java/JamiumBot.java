@@ -604,7 +604,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             UsersController.updateUserState(chat_id, State.VIEW_TASK_5_3);
                             DBConnection.updateUser(chat_id, State.VIEW_TASK_5_3);
 //                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
-                            message.setPhoto("AgADAgADa60xG7X54EswPOyyiINPmz6Wwg8ABAEAAwIAA20AA-n5AQABFgQ");
+                            message.setPhoto("AgADAgADXqwxG2Bo4Evej6olJ-7MTVnSuQ8ABAEAAwIAA20AA5_2BgABFgQ");
                             message.setChatId(chat_id);
                             message.setCaption(String.format("%s \n\n%s", response, Responses.TASK_5_3_TEXT));
                             try {
@@ -938,7 +938,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 UsersController.updateUserState(chat_id, State.VIEW_TASK_5_3);
                 DBConnection.updateUser(chat_id, State.VIEW_TASK_5_3);
 //                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
-                message.setPhoto("AgADAgADa60xG7X54EswPOyyiINPmz6Wwg8ABAEAAwIAA20AA-n5AQABFgQ");
+                message.setPhoto("AgADAgADXqwxG2Bo4Evej6olJ-7MTVnSuQ8ABAEAAwIAA20AA5_2BgABFgQ");
                 message.setChatId(chat_id);
                 message.setCaption(String.format("%s \n\n%s", Responses.TASK_5_3_TEXT, Responses.TASK_5_3));
                 try {
