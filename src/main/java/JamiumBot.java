@@ -639,7 +639,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             //and show Task 6
                             SendMessage message = new SendMessage();
                             message.setChatId(chat_id)
-                                    .setText(Responses.TASK_6_TEXT + response);
+                                    .setText(response + "\n" + Responses.TASK_6_TEXT);
                             try {
                                 execute(message); // Sending our message object to user
                             } catch (TelegramApiException e) {
