@@ -615,6 +615,41 @@ public class JamiumBot extends TelegramLongPollingBot {
                         }
                         break;
                     }
+                    case VIEW_TASK_6: {
+                        response = Validator.task6(update.getMessage().getText());
+                        if (response.equals(Responses.CONGRAT_6)) {
+                            SendMessage message = new SendMessage();
+                            UsersController.updateUserState(chatId, State.SOLVED_TASK_6);
+                            DBConnection.updateUser(chatId, State.SOLVED_TASK_6);
+                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                            message.setChatId(chatId);
+                            message.setText(response);
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                            //TODO: add notification to admin
+                            try{
+                                Notificator.sendPost("oo whee! ori#6 captured by " + update.getMessage().getFrom().toString());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            //and show Task 6
+                            SendMessage message = new SendMessage();
+                            message.setChatId(chat_id)
+                                    .setText("ТЕКСТ ЗАДАНИЯ\n" +
+                                            "Несомненно, одним из основных элементов интересной " +
+                                            "и захватывающей игры является пиво" + response);
+                            try {
+                                execute(message); // Sending our message object to user
+                            } catch (TelegramApiException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        break;
+                    }
                 }
 
             }

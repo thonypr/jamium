@@ -50,6 +50,8 @@ public final class Responses {
     public static final String TASK_5_3_TEXT = "Иногда в канун Нового года хочется обернуть время вспять и вспомнить уходящий год";
     public static final String CONGRAT_5_3 = "Да, нужно было развернуть фразу на 180 градусов!" +
             "\nСамое время приступить к остальным частям задания!";
+    public static final String TASK_6 = "Формат ответа: строка";
+    public static final String CONGRAT_6 = "Верно! Нужно было найти в этом баре название пива на третьем кране!";
 
 
     private Responses() { }

@@ -343,4 +343,29 @@ public class Validator {
         return result;
     }
 
+    public static String task6(String answer) {
+        String result = "";
+        Random r = new Random();
+
+        String correctAnswer = System.getenv("TG_ORI_1_ANSWER");
+
+        System.out.println(String.format("Founds %s and need %s %s", answer, correctAnswer, answer.equals(correctAnswer)));
+        if(answer.toLowerCase().equals(correctAnswer.toLowerCase())) {
+            result = Responses.CONGRAT_6;
+        }
+        else if (answer.equals("42")) {
+            result = lolMsg;
+        }
+        else {
+            try{
+                result = nopes.get(r.nextInt(nopes.size())) + "\n" + Responses.TASK_6;
+            }
+            catch (IndexOutOfBoundsException iob)
+            {
+                result = nopes.get(0) + "\n" + Responses.TASK_6;
+            }
+        }
+        return result;
+    }
+
 }
