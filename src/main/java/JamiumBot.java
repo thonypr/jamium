@@ -640,8 +640,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             SendMessage message = new SendMessage();
                             message.setChatId(chat_id)
                                     .setText("ТЕКСТ ЗАДАНИЯ\n" +
-                                            "Несомненно, одним из основных элементов интересной " +
-                                            "и захватывающей игры является пиво" + response);
+                                            Responses.TASK_6_TEXT + response);
                             try {
                                 execute(message); // Sending our message object to user
                             } catch (TelegramApiException e) {
@@ -976,6 +975,34 @@ public class JamiumBot extends TelegramLongPollingBot {
                 message.setPhoto("AgADAgADXqwxG2Bo4Evej6olJ-7MTVnSuQ8ABAEAAwIAA20AA5_2BgABFgQ");
                 message.setChatId(chat_id);
                 message.setCaption(String.format("%s \n\n%s", Responses.TASK_5_3_TEXT, Responses.TASK_5_3));
+                try {
+                    execute(message); // Sending our message object to user
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            else if (call_data.equals("t_6")) {
+                //and show Task 6
+                UsersController.updateUserState(chat_id, State.VIEW_TASK_6);
+                DBConnection.updateUser(chat_id, State.VIEW_TASK_6);
+                AnswerCallbackQuery callBack = new AnswerCallbackQuery()
+                        .setCallbackQueryId(update.getCallbackQuery().getId());
+//                        .setChatId(chat_id)
+//                        .setMessageId(Integer.valueOf(String.valueOf(message_id)))
+//                        .setText(answer);
+                try {
+                    execute(callBack);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+                //and show Task 6
+                SendMessage message = new SendMessage();
+                UsersController.updateUserState(chat_id, State.VIEW_TASK_6);
+                DBConnection.updateUser(chat_id, State.VIEW_TASK_6);
+//                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                message.setChatId(chat_id);
+                message.setText(String.format("%s \n\n%s", Responses.TASK_6_TEXT, Responses.TASK_6));
                 try {
                     execute(message); // Sending our message object to user
                 } catch (TelegramApiException e) {
