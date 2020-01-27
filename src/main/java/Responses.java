@@ -52,7 +52,8 @@ public final class Responses {
             "\nСамое время приступить к остальным частям задания!";
     public static final String TASK_6 = "Формат ответа: строка";
     public static final String CONGRAT_6 = "Верно! Нужно было найти в этом баре название пива на третьем кране!";
-    public static final String TASK_6_TEXT = "Несомненно, одним из основных элементов интересной и захватывающей игры является пиво";
+    public static final String TASK_6_TEXT = "TEXT\n\nВсё просто - в баре пиво, значит основным элементом задания будет тоже пиво!\n" +
+            "Ищи в баре подсказки - они прямо преед тобой!";
 
 
     private Responses() { }
