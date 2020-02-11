@@ -54,6 +54,9 @@ public final class Responses {
     public static final String CONGRAT_6 = "Верно! Нужно было найти в этом баре название пива на третьем кране!";
     public static final String TASK_6_TEXT = "34 47 47 50\n15 50 57 39\n40 13 30 50 43\n40 61 10\n\nВсё просто - в баре пиво, значит основным элементом задания будет тоже пиво!\n" +
             "Ищи в баре подсказки - они прямо перед тобой!\n";
+    public static final String TASK_7 = "Формат ответа: слово";
+    public static final String CONGRAT_7 = "Верно! Нужно было найти в этом баре название пива на третьем кране!";
+    public static final String TASK_7_TEXT = "В этот раз совсем без слов";
 
 
     private Responses() { }
