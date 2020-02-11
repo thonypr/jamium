@@ -50,8 +50,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-            }
-            else if (chat_id == 235486635 && message_text.contains("send")) {
+            } else if (chat_id == 235486635 && message_text.contains("send")) {
                 log(String.valueOf(chat_id), "admin!", "");
 //                    SendPhoto photo = new SendPhoto();
                 // send;id;text
@@ -75,9 +74,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 }
 
 
-            }
-
-            else if (chat_id == 235486635 && message_text.contains("taska")) {
+            } else if (chat_id == 235486635 && message_text.contains("taska")) {
                 log(String.valueOf(chat_id), "admin!", "");
 //                    SendPhoto photo = new SendPhoto();
                 // taska;id
@@ -85,9 +82,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 String id = parts[1];
                 TaskDBController.addTask(Long.valueOf(id));
 
-            }
-
-            else if (chat_id == 235486635 && message_text.contains("tasku")) {
+            } else if (chat_id == 235486635 && message_text.contains("tasku")) {
                 log(String.valueOf(chat_id), "admin!", "");
 //                    SendPhoto photo = new SendPhoto();
                 // tasku;id;state
@@ -96,19 +91,15 @@ public class JamiumBot extends TelegramLongPollingBot {
                 boolean state = parts[2].equals("1");
                 TaskDBController.updateTaskState(Long.valueOf(id), state);
 
-            }
-
-            else if (chat_id == 235486635 && message_text.contains("tasks")) {
+            } else if (chat_id == 235486635 && message_text.contains("tasks")) {
                 log(String.valueOf(chat_id), "admin!", "");
 //                    SendPhoto photo = new SendPhoto();
                 // tasku;id;state
                 Notificator.sendToAdmin(TaskDBController.getTasks());
 
-            }
+            } else if (message_text.equals("/start")) {
 
-            else if (message_text.equals("/start")) {
-
-                if(!UsersController.hasUser(chat_id)) {
+                if (!UsersController.hasUser(chat_id)) {
                     try {
                         Notificator.sendDebug(String.format("User %s started", update.getMessage().getFrom().toString()));
                     } catch (Exception e) {
@@ -166,7 +157,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             DBConnection.updateUser(chatId, State.SOLVED_TASK_1);
                             message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
                             //TODO: add notification to admin
-                            try{
+                            try {
                                 Notificator.sendPost("ooo whee! jam#1 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -199,7 +190,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                 e.printStackTrace();
                             }
                             //TODO: add notification to admin
-                            try{
+                            try {
                                 Notificator.sendPost("oo whee! jam#2 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -234,7 +225,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                     .setChatId(chatId)
                                     .setDocument("CgADAgADQAQAAvY6SEhoXr_uno9atxYE")
                                     .setCaption("Take my treasure. Mine is yours\n" + response);
-                                    //TODO: fix
+                            //TODO: fix
 //                                  //prod: 3_2  .setDocument("CgADAgADgwMAAlHYOUiEuWvIN2EqJhYE")
                             try {
                                 execute(message); // Sending our message object to user
@@ -242,7 +233,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                 e.printStackTrace();
                             }
                             //TODO: add notification to admin
-                            try{
+                            try {
                                 Notificator.sendPost("oo whee! jam#3_1 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -280,7 +271,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                 e.printStackTrace();
                             }
                             //TODO: add notification to admin
-                            try{
+                            try {
                                 Notificator.sendPost("oo whee! jam#3_2 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -293,7 +284,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                     .setChatId(chatId)
                                     .setDocument("CgADAgADQAQAAvY6SEhoXr_uno9atxYE")
                                     .setCaption("Take my treasure. Mine is yours\n" + response + "\n" + Responses.TASK_3_2);
-                                    //TODO: fix
+                            //TODO: fix
 //                                  //prod chat 3_2  .setDocument("CgADAgADgwMAAlHYOUiEuWvIN2EqJhYE")
                             try {
                                 execute(messageAudio);
@@ -336,7 +327,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                 e.printStackTrace();
                             }
                             //TODO: add notification to admin
-                            try{
+                            try {
                                 Notificator.sendPost("oo whee! jam#4_1 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -386,7 +377,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                 e.printStackTrace();
                             }
                             //TODO: add notification to admin
-                            try{
+                            try {
                                 Notificator.sendPost("oo whee! jam#4_2 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -443,7 +434,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                             }
 
                             //TODO: add notification to admin
-                            try{
+                            try {
                                 Notificator.sendPost("oo whee! jam#5 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -480,7 +471,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                 e.printStackTrace();
                             }
                             //TODO: add notification to admin
-                            try{
+                            try {
                                 Notificator.sendPost("oo whee! jam#5_1 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -527,7 +518,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                 e.printStackTrace();
                             }
                             //TODO: add notification to admin
-                            try{
+                            try {
                                 Notificator.sendPost("oo whee! jam#5_2 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -583,7 +574,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                 e.printStackTrace();
                             }
                             //TODO: add notification to admin
-                            try{
+                            try {
                                 Notificator.sendPost("oo whee! jam#5_3 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -630,7 +621,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                                 e.printStackTrace();
                             }
                             //TODO: add notification to admin
-                            try{
+                            try {
                                 Notificator.sendPost("oo whee! ori#6 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -663,16 +654,19 @@ public class JamiumBot extends TelegramLongPollingBot {
                                 e.printStackTrace();
                             }
                             //TODO: add notification to admin
-                            try{
+                            try {
                                 Notificator.sendPost("oo whee! ori#2 captured by " + update.getMessage().getFrom().toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         } else {
                             //and show Task 7
-                            SendMessage message = new SendMessage();
-                            message.setChatId(chat_id)
-                                    .setText(response + "\n" + Responses.TASK_7_TEXT);
+                            SendPhoto message = new SendPhoto();
+                            UsersController.updateUserState(chat_id, State.VIEW_TASK_7);
+                            DBConnection.updateUser(chat_id, State.VIEW_TASK_7);
+                            message.setPhoto("AgACAgIAAxkBAAIBBl5DMJcIzTLHsEzysf9q8Mmt0mcwAAJaqzEbU58gShl4XbONLnCngkfLDgAEAQADAgADeAADSSoCAAEYBA");
+                            message.setChatId(chat_id);
+                            message.setCaption(response + "\n" + Responses.TASK_7_TEXT);
                             try {
                                 execute(message); // Sending our message object to user
                             } catch (TelegramApiException e) {
@@ -750,8 +744,7 @@ public class JamiumBot extends TelegramLongPollingBot {
             } catch (TelegramApiException e) {
                 e.printStackTrace();
             }
-        }
-        else if (update.hasCallbackQuery()) {
+        } else if (update.hasCallbackQuery()) {
             // Set variables
             String call_data = update.getCallbackQuery().getData();
             long message_id = update.getCallbackQuery().getMessage().getMessageId();
@@ -780,8 +773,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-            }
-            else if (call_data.equals("a_g")) {
+            } else if (call_data.equals("a_g")) {
                 String answer = UsersController.getUsers();
                 AnswerCallbackQuery callBack = new AnswerCallbackQuery()
                         .setText("get users called")
@@ -795,8 +787,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-            }
-            else if (call_data.equals("t_2")) {
+            } else if (call_data.equals("t_2")) {
                 UsersController.updateUserState(chat_id, State.VIEW_TASK_2);
                 DBConnection.updateUser(chat_id, State.VIEW_TASK_2);
                 String answer = "And I'm task 2! " + chat_id;
@@ -820,9 +811,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-            }
-
-            else if (call_data.equals("t_3_1")) {
+            } else if (call_data.equals("t_3_1")) {
                 //and show Task 3_2
                 UsersController.updateUserState(chat_id, State.VIEW_TASK_3_1);
                 DBConnection.updateUser(chat_id, State.VIEW_TASK_3_1);
@@ -849,9 +838,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-            }
-
-            else if (call_data.equals("t_4_1")) {
+            } else if (call_data.equals("t_4_1")) {
                 //and show Task 4_1
                 UsersController.updateUserState(chat_id, State.VIEW_TASK_4_1);
                 DBConnection.updateUser(chat_id, State.VIEW_TASK_4_1);
@@ -888,9 +875,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-            }
-
-            else if (call_data.equals("t_5")) {
+            } else if (call_data.equals("t_5")) {
                 //and show Task 5
                 UsersController.updateUserState(chat_id, State.VIEW_TASK_5);
                 DBConnection.updateUser(chat_id, State.VIEW_TASK_5);
@@ -916,9 +901,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-            }
-
-            else if (call_data.equals("t_5_1")) {
+            } else if (call_data.equals("t_5_1")) {
                 //and show Task 5_1
                 UsersController.updateUserState(chat_id, State.VIEW_TASK_5_1);
                 DBConnection.updateUser(chat_id, State.VIEW_TASK_5_1);
@@ -945,9 +928,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-            }
-
-            else if (call_data.equals("t_5_2")) {
+            } else if (call_data.equals("t_5_2")) {
                 //and show Task 5_2
                 UsersController.updateUserState(chat_id, State.VIEW_TASK_5_2);
                 DBConnection.updateUser(chat_id, State.VIEW_TASK_5_2);
@@ -983,9 +964,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-            }
-
-            else if (call_data.equals("t_5_3")) {
+            } else if (call_data.equals("t_5_3")) {
                 //and show Task 5_3
                 UsersController.updateUserState(chat_id, State.VIEW_TASK_5_3);
                 DBConnection.updateUser(chat_id, State.VIEW_TASK_5_3);
@@ -1012,9 +991,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-            }
-
-            else if (call_data.equals("t_6")) {
+            } else if (call_data.equals("t_6")) {
                 //and show Task 6
                 UsersController.updateUserState(chat_id, State.VIEW_TASK_6);
                 DBConnection.updateUser(chat_id, State.VIEW_TASK_6);
@@ -1040,9 +1017,7 @@ public class JamiumBot extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-            }
-
-            else if (call_data.equals("t_7")) {
+            } else if (call_data.equals("t_7")) {
                 //and show Task 7
                 UsersController.updateUserState(chat_id, State.VIEW_TASK_7);
                 DBConnection.updateUser(chat_id, State.VIEW_TASK_7);
@@ -1057,17 +1032,19 @@ public class JamiumBot extends TelegramLongPollingBot {
                     e.printStackTrace();
                 }
                 //and show Task 7
-                SendMessage message = new SendMessage();
+                SendPhoto message = new SendPhoto();
                 UsersController.updateUserState(chat_id, State.VIEW_TASK_7);
                 DBConnection.updateUser(chat_id, State.VIEW_TASK_7);
 //                            message.setReplyMarkup(InlineKeyboardResponses.getTasksKeyboard());
+                message.setPhoto("AgACAgIAAxkBAAIBBl5DMJcIzTLHsEzysf9q8Mmt0mcwAAJaqzEbU58gShl4XbONLnCngkfLDgAEAQADAgADeAADSSoCAAEYBA");
                 message.setChatId(chat_id);
-                message.setText(String.format("%s \n\n%s", Responses.TASK_7_TEXT, Responses.TASK_7));
+                message.setCaption(String.format("%s \n\n%s", Responses.TASK_7_TEXT, Responses.TASK_7));
                 try {
                     execute(message); // Sending our message object to user
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
+
             }
 
         }
