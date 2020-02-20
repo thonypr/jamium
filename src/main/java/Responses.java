@@ -1,6 +1,6 @@
 public final class Responses {
 
-    public static final String WELCOME = "Привет, X!\nЗдесь ты можешь проверить свои ответы на задания Jamium!\n" +
+    public static final String WELCOME = "Привет, X!\nЗдесь ты можешь проверить свои ответы на задания OreeGamee!\n" +
             "Если нужна помощь по заданию - просто отправь мне сообщение вида: 'help и свой вопрос'";
     public static final String TASK_1 = "Формат ответа: число\n⠋⠊⠗⠎⠞⠏⠗⠊⠍⠑⠁⠋⠞⠑⠗⠍⠊⠇⠇⠊⠕⠝";
     public static final String CONGRAT_1 = "Верно!\nШрифт Брайля просит найти первое простое число после 1000000,\n" +
