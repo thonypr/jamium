@@ -58,6 +58,9 @@ public final class Responses {
     public static final String CONGRAT_7 = "Верно! Это фраза на языке Блисс - фамилия создателя первой шоколадной коробки\n" +
             "на день святого Валентина - и ответ - Cadbury!";
     public static final String TASK_7_TEXT = "В этот раз совсем без слов";
+    public static final String TASK_8 = "Формат ответа: число";
+    public static final String CONGRAT_8 = "Верно! Не хватает кварка странного, а обнаружен он был в 1947 году";
+    public static final String TASK_8_TEXT = "Здесь его нет, однако без него никуда. В каком году его обнаружили?";
 
 
     private Responses() { }

@@ -19,7 +19,8 @@ public class InlineResponses {
                     new InlineKeyboardButton().setText("Jam #5_2 \uD83C\uDF85").setCallbackData("t_5_2"),
                     new InlineKeyboardButton().setText("Jam #5_3 ✨").setCallbackData("t_5_3"),
                     new InlineKeyboardButton().setText("Ori #1").setCallbackData("t_6"),
-                    new InlineKeyboardButton().setText("Ori #2").setCallbackData("t_7")
+                    new InlineKeyboardButton().setText("Ori #2").setCallbackData("t_7"),
+                    new InlineKeyboardButton().setText("Ori #2_m").setCallbackData("t_8")
             ));
 
     private static ArrayList<InlineKeyboardButton> medias = new ArrayList<>(
@@ -77,6 +78,11 @@ public class InlineResponses {
     private static ArrayList<InlineKeyboardButton> task7 = new ArrayList<>(
             Arrays.asList(
                     new InlineKeyboardButton().setText("Task 7").setCallbackData("t_7")
+            ));
+
+    private static ArrayList<InlineKeyboardButton> task8 = new ArrayList<>(
+            Arrays.asList(
+                    new InlineKeyboardButton().setText("Task 8").setCallbackData("t_8")
             ));
 
     private static ArrayList<InlineKeyboardButton> attempt1 = new ArrayList<>(
@@ -154,6 +160,10 @@ public class InlineResponses {
 
     public static List<InlineKeyboardButton> getTask7InlineButtons() {
         return task7;
+    }
+
+    public static List<InlineKeyboardButton> getTask8InlineButtons() {
+        return task8;
     }
 
 }
